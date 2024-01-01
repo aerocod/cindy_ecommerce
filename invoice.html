@@ -1,0 +1,1946 @@
+<html lang="en-US" class=""><head>
+    <title>Invoice - Cindy Ecommerce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body data-new-gr-c-s-check-loaded="14.1147.0" data-gr-ext-installed="">
+    <style>
+        @font-face {
+            font-family: "PayPalOpen";
+            src: url(https://www.paypalobjects.com/paypal-ui/fonts/PayPalOpen-Bold.woff) format("woff");
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: "PayPalOpen";
+            src: url(https://www.paypalobjects.com/paypal-ui/fonts/PayPalOpen-Regular.woff2) format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
+        html,
+        body {
+            height: 100% !important;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        html {
+            min-width: inherit !important;
+        }
+        html.lander {
+            background: #e6e0d9;
+        }
+        html.v4Design {
+            background: #e9e9e9;
+        }
+        html.v4Design .content__wrapper-overflow {
+            background-color: #f6f6f6;
+        }
+        body {
+            margin: 0;
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            color: #001435;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .spinner {
+            display: none;
+        }
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg) translate(-50%, -50%);
+            }
+            100% {
+                -webkit-transform: rotate(360deg) translate(-50%, -50%);
+            }
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg) translate(-50%, -50%);
+            }
+            100% {
+                transform: rotate(360deg) translate(-50%, -50%);
+            }
+        }
+        .sr-only {
+            border: 0 !important;
+            clip: rect(1px, 1px, 1px, 1px) !important;
+            -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important;
+            height: 1px !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            padding: 0 !important;
+            position: absolute !important;
+            width: 1px !important;
+            white-space: nowrap !important;
+        }
+        .button__container {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .button__container .button {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            display: inline-block;
+            background: #003087;
+            border: none;
+            color: #fff;
+            border-radius: 3rem;
+            padding: 0.7em 2.5em;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .button__container .button:hover,
+        .button__container .button:focus {
+            background: #0070e0;
+        }
+        .button__container .button:focus {
+            text-decoration: underline;
+            outline: 3px solid #003087;
+        }
+        .calculator {
+            transition: padding-top 0.2s ease-out;
+            flex-grow: 1;
+            padding-right: 25px;
+            padding-bottom: 10px;
+        }
+        .content__wrapper-overflow .loading .calculator {
+            filter: blur(3px);
+            opacity: 0.6;
+        }
+        @media (min-width: 99999999px) {
+            .calculator {
+                margin-top: 25px;
+                margin-bottom: 10px;
+                padding-left: 30px;
+                padding-right: 60px;
+            }
+        }
+        @media (min-width: 640px) {
+            .calculator {
+                margin-top: 20px;
+                margin-bottom: 10px;
+                padding-right: 0px;
+                width: 315px;
+            }
+        }
+        @media (max-width: 639px) {
+            .calculator {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+        }
+        @media (max-width: 350px) {
+            .calculator {
+                margin-top: 15px;
+            }
+        }
+        .calculator .title {
+            color: #001435;
+            font-weight: 400;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        @media (min-width: 99999999px) {
+            .lander .calculator .title {
+                margin-top: 20px;
+            }
+        }
+        .calculator .input__wrapper {
+            position: relative;
+            display: inline-block;
+            font-size: 0.9rem;
+            text-align: left;
+            margin-bottom: 0.25rem;
+        }
+        .calculator .input__wrapper .input__label {
+            position: absolute;
+            left: 0.5rem;
+            top: 0.25rem;
+        }
+        .calculator .input__wrapper .input__currency-symbol {
+            position: absolute;
+            right: 0;
+            margin-top: 25px;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        .calculator .input__wrapper .input {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            color: #001435;
+            font-size: 18px;
+            padding: 1.75rem 0.5rem 0.25rem;
+        }
+        .calculator .input__wrapper .input.empty-input {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+        .calculator .input__wrapper .input.empty-input::placeholder {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            font-size: 14px;
+        }
+        .calculator .form {
+            text-align: left;
+        }
+        .calculator .v4Design h4 {
+            font-weight: 700;
+        }
+        .calculator__error {
+            color: #001435;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        @media (min-width: 640px) {
+            .calculator__error {
+                display: flex;
+            }
+        }
+        .calculator__error > div {
+            display: inline-flex;
+            text-align: left;
+            align-items: flex-start;
+            max-width: 300px;
+        }
+        @media (min-width: 99999999px) {
+            .calculator__error > div {
+                margin: auto;
+            }
+        }
+        @media (max-width: 639px) {
+            .calculator__error > div {
+                margin: auto;
+            }
+        }
+        .calculator__error.hide {
+            margin-top: -20px;
+        }
+        .calculator__error.hide > div {
+            height: 0;
+            overflow: hidden;
+        }
+        .calculator__error svg {
+            margin: 0 0.3rem 0 0;
+        }
+        .calculator .finance-terms__disclaimer {
+            color: #515354;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        @media (max-width: 639px) {
+            .calculator .finance-terms__disclaimer {
+                margin-top: 0px;
+            }
+        }
+        @media (max-width: 350px) {
+            .calculator .finance-terms__disclaimer {
+                margin-top: 0px;
+            }
+        }
+        .content__wrapper-overflow {
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            width: 100%;
+            transform: translate(0, 0);
+        }
+        .lander .content__wrapper-overflow {
+            transform: none;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+        @media (min-width: 640px) {
+            .lander .content__wrapper-overflow {
+                border-radius: 0;
+                background-color: #faf8f5;
+            }
+        }
+        @media (max-width: 639px) {
+            .content__wrapper-overflow {
+                border-radius: 0;
+            }
+        }
+        @media (min-width: 640px) {
+            .content__wrapper-overflow {
+                max-width: 640px;
+            }
+        }
+        @media (min-width: 99999999px) {
+            .content__wrapper-overflow {
+                max-width: 840px;
+            }
+        }
+        .api-iframe .content__wrapper-overflow {
+            max-width: 100vw;
+            border-radius: 0;
+        }
+        .content__wrapper {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -moz-overflow-scrolling: touch;
+            height: 100vh;
+            max-height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            background: #faf8f5;
+        }
+        @media (min-width: 640px) {
+            .content__wrapper {
+                max-height: 90vh;
+            }
+        }
+        @media (min-width: 99999999px) {
+            .content__wrapper {
+                max-height: 90vh;
+            }
+        }
+        .lander .content__wrapper {
+            height: auto;
+            max-height: none;
+            margin-bottom: 4rem;
+            border-radius: 0;
+            background: rgba(0, 0, 0, 0);
+            overflow: visible;
+        }
+        @media (max-width: 639px) {
+            .lander .content__wrapper {
+                min-height: 100vh;
+                margin-bottom: 0;
+            }
+        }
+        .api-iframe .content__wrapper {
+            max-height: 100%;
+        }
+        .content__container {
+            position: relative;
+            background: rgba(0, 0, 0, 0);
+            box-sizing: border-box;
+            padding-top: 0;
+            background: #faf8f5;
+            padding-bottom: 1.5rem;
+            flex-grow: 1;
+            margin-top: -40px;
+            z-index: 1000;
+        }
+        .content__container main {
+            color: #515354;
+            padding-top: 0;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 100%;
+        }
+        .content__container .content__body {
+            flex: 1 1 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+        @media (max-width: 639px) {
+            .lander .content__container .content__body {
+                padding: 0px 20px 100px 20px;
+            }
+        }
+        .content__container .content__row.dynamic {
+            display: flex;
+            flex-direction: column;
+            margin: 0 -20px;
+            background: #fff;
+            padding-top: 1.5rem;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+        @media (min-width: 640px) {
+            .content__container .content__row.dynamic.product-list {
+                padding-left: 65px;
+                padding-right: 65px;
+            }
+        }
+        @media (max-width: 639px) {
+            .lander .content__container .content__row.dynamic.no-interest {
+                padding-top: 0rem;
+            }
+        }
+        @media (min-width: 99999999px) {
+            .content__container .content__row.dynamic {
+                height: 100%;
+            }
+            .content__container .content__row.dynamic .content__col {
+                width: 50%;
+            }
+        }
+        .content__container .content__row .content__col {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: 639px) {
+            .content__container .content__row .content__col {
+                width: 100%;
+            }
+        }
+        @media (min-width: 99999999px) {
+            .content__container .content__row .content__col.collapsed:last-child {
+                position: absolute;
+                right: 0;
+            }
+        }
+        @media (min-width: 640px) {
+            .content__container .content__row .content__col:first-child {
+                align-items: center;
+                width: 100%;
+            }
+        }
+        @media (max-width: 639px) {
+            .lander .content__container .content__row .content__col:first-child.no-interest {
+                padding-top: 1.5rem;
+            }
+        }
+        @media (min-width: 640px) {
+            .content__container .content__row .content__col:last-child {
+                display: none;
+            }
+        }
+        @media (max-width: 639px) {
+            .content__container .content__row .content__col:last-child {
+                display: none;
+            }
+        }
+        @media (max-width: 350px) {
+            .content__container .content__row .content__col:last-child {
+                display: none;
+            }
+        }
+        .content__container .content__row .content__col .product-list {
+            width: 100%;
+        }
+        .content__container .content__row.disclosure {
+            text-align: left;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        @media (min-width: 99999999px) {
+            .content__container .content__row.disclosure {
+                margin: 42px 30px 23px 30px;
+            }
+        }
+        @media (min-width: 640px) {
+            .content__container .content__row.disclosure {
+                margin: 42px 44px 20px 44px;
+            }
+        }
+        @media (max-width: 639px) {
+            .content__container .content__row.disclosure {
+                margin-top: 28px;
+            }
+        }
+        .content__container.v4Design {
+            background: #f6f6f6;
+        }
+        .header__container {
+            position: relative;
+        }
+        @media (min-width: 99999999px) {
+            .header__container {
+                padding-bottom: 30px;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__container {
+                padding-bottom: 40px;
+            }
+        }
+        @media (max-width: 639px) {
+            .header__container {
+                padding-bottom: 40px;
+            }
+        }
+        .header__fixed-wrapper {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            display: flex;
+            pointer-events: none;
+            z-index: 0;
+            top: 0;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+        }
+        @media (min-width: 640px) {
+            .header__fixed-wrapper {
+                max-width: 640px;
+            }
+        }
+        @media (min-width: 99999999px) {
+            .header__fixed-wrapper {
+                max-width: 840px;
+            }
+        }
+        .api-iframe .header__fixed-wrapper {
+            max-width: 100vw;
+        }
+        .header__fixed-wrapper :first-child {
+            pointer-events: all;
+            flex: 1 1 100%;
+        }
+        .header__fixed-wrapper::after {
+            content: "";
+            display: block;
+            visibility: hidden;
+            overflow-y: scroll;
+        }
+        .lander .header__fixed-wrapper::after {
+            content: none;
+        }
+        .header__fixed-wrapper--front {
+            z-index: 1;
+        }
+        @media (max-width: 639px) {
+            .header__fixed-wrapper {
+                border-radius: 0;
+            }
+        }
+        .api-iframe .header__fixed-wrapper {
+            border-radius: 0;
+        }
+        .lander .header__fixed-wrapper {
+            border-radius: 0;
+        }
+        .header__fixed-wrapper .v4Design {
+            background-color: #f6f6f6;
+        }
+        .header__background-wrapper {
+            overflow: hidden;
+            height: 25rem;
+            max-height: 85vh;
+            background-color: #faf8f5;
+        }
+        .header__background-wrapper--sticky {
+            height: 60px;
+        }
+        @media (max-width: 639px) {
+            .header__background-wrapper--sticky {
+                height: 50px;
+            }
+        }
+        .header__background-wrapper--gradient {
+            height: 10rem;
+            -webkit-mask-image: linear-gradient(to bottom, black, black 60px, transparent 100px);
+            mask-image: linear-gradient(to bottom, black, black 60px, transparent 100px);
+        }
+        @media (max-width: 639px) {
+            .header__background-wrapper--gradient {
+                -webkit-mask-image: linear-gradient(to bottom, black, black 50px, transparent 100px);
+                mask-image: linear-gradient(to bottom, black, black 50px, transparent 100px);
+            }
+        }
+        .header__icons {
+            box-sizing: border-box;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            z-index: 1001;
+            display: flex;
+            height: auto;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            flex: 0 0 60px;
+        }
+        @media (max-width: 639px) {
+            .header__icons {
+                flex: 0 0 50px;
+            }
+        }
+        .header__icons .logo__wrapper {
+            z-index: 9;
+            transform: translate(0, 2rem);
+            transition: transform 0.2s ease-out;
+            padding: 0 20px;
+        }
+        @media (min-width: 99999999px) {
+            .header__icons .logo__wrapper {
+                padding: 0px;
+                margin-left: 48px;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__icons .logo__wrapper {
+                padding: 0px;
+                margin-left: 56px;
+            }
+        }
+        .header__icons .logo__wrapper--scroll {
+            transform: translate(-3rem, 0);
+        }
+        @media (max-width: 639px) {
+            .header__icons .logo__wrapper--scroll {
+                transform: translate(0, 0);
+            }
+        }
+        .header__icons .logo__wrapper .pp-logo {
+            pointer-events: none;
+        }
+        .header__icons .close {
+            pointer-events: all;
+            background: rgba(0, 0, 0, 0);
+            border: none;
+            cursor: pointer;
+            z-index: 9;
+        }
+        .header__icons .close:focus {
+            outline: -webkit-focus-ring-color solid 2px;
+        }
+        @media (min-width: 99999999px) {
+            .header__icons .close {
+                margin-left: auto;
+                margin-right: 2px;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__icons .close {
+                margin-left: auto;
+                margin-right: 2px;
+            }
+        }
+        @media (max-width: 639px) {
+            .header__icons .close {
+                margin-top: 1px;
+                margin-right: 2px;
+            }
+        }
+        .header__icons .close svg {
+            height: 48px;
+            width: 48px;
+            pointer-events: none;
+        }
+        @media (min-width: 99999999px) {
+            .header__icons .close svg {
+                margin: 0px;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__icons .close svg {
+                margin: 0px;
+            }
+        }
+        .header__icons .close svg path {
+            stroke-width: 2.2;
+        }
+        .header__content {
+            padding-top: 2rem;
+            position: relative;
+        }
+        @media (min-width: 99999999px) {
+            .header__content {
+                padding-bottom: 40px;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__content {
+                width: 100%;
+                padding-bottom: 40px;
+            }
+        }
+        .header__content svg {
+            position: absolute;
+            right: 0;
+            bottom: 36px;
+            pointer-events: none;
+        }
+        @media (min-width: 99999999px) {
+            .header__content svg.background-mobile {
+                display: none;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__content svg.background-mobile {
+                display: none;
+            }
+        }
+        @media (max-width: 639px) {
+            .header__content svg.background-desktop {
+                display: none;
+            }
+        }
+        .header__content h2 {
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 36px;
+            text-align: left;
+            color: #001435;
+            margin-left: 52px;
+            margin-top: 10px;
+        }
+        @media (min-width: 99999999px) {
+            .header__content h2 {
+                margin-bottom: 10px;
+            }
+            .header__content h2 br {
+                display: none;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__content h2 {
+                margin-left: 62px;
+            }
+            .lander .header__content h2 {
+                max-width: 100%;
+            }
+            .header__content h2 br {
+                display: none;
+            }
+        }
+        @media (max-width: 639px) {
+            .header__content h2 {
+                margin-bottom: 5px;
+                margin-left: 22px;
+                max-width: 84%;
+            }
+        }
+        @media (max-width: 350px) {
+            .header__content h2 {
+                font-size: 1.7rem;
+                max-width: 81%;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__content h2.headline-de {
+                margin-right: 20px;
+            }
+        }
+        @media (max-width: 639px) {
+            .header__content h2.headline-de {
+                line-height: 30px;
+                margin-right: 50px;
+                margin-left: 0px;
+                padding: 10px 25px 0px;
+            }
+        }
+        .api-iframe .header__content h2.headline-de {
+            max-width: 500px;
+        }
+        @media (max-width: 639px) {
+            .api-iframe .header__content h2.headline-de {
+                max-width: 279px;
+            }
+        }
+        .header__content h2.headline-gb-preapproved {
+            max-width: 50%;
+        }
+        @media (max-width: 639px) {
+            .header__content h2.headline-gb-preapproved {
+                max-width: 75%;
+            }
+        }
+        @media (max-width: 350px) {
+            .header__content h2.headline-us-preapproved {
+                max-width: 75%;
+            }
+        }
+        .header__content .subheadline_p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            color: #001435;
+            margin: 0px;
+        }
+        @media (min-width: 99999999px) {
+            .header__content .subheadline_p {
+                margin-left: 52px;
+                margin-top: 0px;
+                margin-bottom: 80px;
+            }
+        }
+        @media (min-width: 640px) {
+            .header__content .subheadline_p {
+                max-width: 380px;
+                margin-left: 62px;
+                margin-bottom: 60px;
+            }
+        }
+        @media (max-width: 639px) {
+            .header__content .subheadline_p {
+                max-width: 75%;
+                padding: 10px 22px 100px;
+                line-height: 20px;
+            }
+        }
+        @media (max-width: 350px) {
+            .header__content .subheadline_p {
+                max-width: 67%;
+            }
+        }
+        .header__content .subheadline_p span {
+            white-space: nowrap;
+        }
+        .instructions {
+            text-align: left;
+            box-sizing: border-box;
+        }
+        @media (min-width: 99999999px) {
+            .instructions {
+                padding-left: 30px;
+            }
+        }
+        @media (min-width: 640px) {
+            .instructions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        @media (min-width: 99999999px) {
+            .instructions ol {
+                padding: 0px;
+            }
+        }
+        @media (max-width: 639px) {
+            .instructions ol {
+                padding: 0px;
+            }
+        }
+        @media (max-width: 639px) {
+            .instructions ol.ppc {
+                margin-top: -11px;
+                margin-bottom: 0px;
+            }
+        }
+        .instructions li {
+            color: #001435;
+            list-style: none;
+            line-height: 24px;
+            font-size: 18px;
+            padding-bottom: 16px;
+        }
+        .instructions h2 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 24px;
+            text-align: left;
+            color: #001435;
+            margin-left: 42px;
+            margin-top: 10px;
+        }
+        @media (min-width: 99999999px) {
+            .instructions h2 {
+                margin-bottom: 10px;
+            }
+            .instructions h2 br {
+                display: none;
+            }
+        }
+        @media (min-width: 640px) {
+            .instructions h2 {
+                margin-left: 32px;
+            }
+            .lander .instructions h2 {
+                max-width: 100%;
+            }
+            .instructions h2 br {
+                display: none;
+            }
+        }
+        @media (max-width: 639px) {
+            .instructions h2 {
+                margin-bottom: 5px;
+                margin-left: 0px;
+                max-width: 84%;
+            }
+        }
+        @media (max-width: 350px) {
+            .instructions h2 {
+                max-width: 81%;
+            }
+        }
+        .instructions .subheadline_p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: left;
+            color: #001435;
+            margin: 0px;
+        }
+        @media (min-width: 99999999px) {
+            .instructions .subheadline_p {
+                margin-top: 0px;
+                margin-left: 32px;
+                margin-bottom: 30px;
+            }
+        }
+        @media (min-width: 640px) {
+            .instructions .subheadline_p {
+                margin-top: 10px;
+                margin-left: 32px;
+                margin-bottom: 10px;
+            }
+        }
+        @media (max-width: 639px) {
+            .instructions .subheadline_p {
+                padding-bottom: 10px;
+            }
+        }
+        @media (max-width: 350px) {
+            .instructions .subheadline_p {
+                font-size: 1rem;
+            }
+        }
+        .instructions .instructions__item-wrapper {
+            display: flex;
+            flex-direction: row;
+        }
+        @media (min-width: 640px) {
+            .instructions .instructions__item-wrapper:last-child li {
+                padding-bottom: 0px;
+            }
+        }
+        @media (max-width: 639px) {
+            .instructions .instructions__item-wrapper:last-child li {
+                padding-bottom: 0px;
+            }
+        }
+        .instructions .v4Design strong {
+            font-weight: 400;
+        }
+        .instructions .instructions__bullet {
+            font-size: 18px;
+            color: #001435;
+            margin-right: 0.7rem;
+        }
+        .instructions .instructions__bullet span {
+            position: relative;
+            z-index: 1;
+        }
+        @media (min-width: 640px) {
+            .lander .instructions {
+                margin: 0px;
+            }
+        }
+        @media (max-width: 639px) {
+            .lander .instructions {
+                margin: 0px;
+            }
+        }
+        .preapproval-disclaimer {
+            text-align: left;
+            box-sizing: border-box;
+        }
+        @media (min-width: 99999999px) {
+            .preapproval-disclaimer {
+                padding-left: 30px;
+            }
+        }
+        @media (min-width: 640px) {
+            .preapproval-disclaimer {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        .preapproval-disclaimer ul {
+            list-style: disc;
+        }
+        @media (min-width: 99999999px) {
+            .preapproval-disclaimer ul {
+                padding: 0px;
+            }
+        }
+        @media (max-width: 639px) {
+            .preapproval-disclaimer ul {
+                padding: 0px;
+            }
+        }
+        @media (max-width: 639px) {
+            .preapproval-disclaimer ul.ppc {
+                margin-top: -11px;
+                margin-bottom: 0px;
+            }
+        }
+        .preapproval-disclaimer ul .preapproval-disclaimer__item-wrapper {
+            display: list-item;
+            padding-bottom: 0px;
+        }
+        .preapproval-disclaimer ul li {
+            margin-left: 0.6rem;
+        }
+        @media (min-width: 99999999px) {
+            .preapproval-disclaimer ul li {
+                margin-left: 0.6rem;
+            }
+        }
+        @media (max-width: 639px) {
+            .preapproval-disclaimer ul li {
+                margin-left: 1.2rem;
+            }
+        }
+        .preapproval-disclaimer li {
+            color: #545d68;
+            line-height: 20px;
+            font-size: 14px;
+            padding-bottom: 16px;
+        }
+        .preapproval-disclaimer h2 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 24px;
+            text-align: left;
+            color: #001435;
+            margin-left: 42px;
+            margin-top: 10px;
+        }
+        @media (min-width: 99999999px) {
+            .preapproval-disclaimer h2 {
+                margin-bottom: 10px;
+            }
+            .preapproval-disclaimer h2 br {
+                display: none;
+            }
+        }
+        @media (min-width: 640px) {
+            .preapproval-disclaimer h2 {
+                margin-left: 32px;
+            }
+            .lander .preapproval-disclaimer h2 {
+                max-width: 100%;
+            }
+            .preapproval-disclaimer h2 br {
+                display: none;
+            }
+        }
+        @media (max-width: 639px) {
+            .preapproval-disclaimer h2 {
+                margin-bottom: 5px;
+                margin-left: 0px;
+            }
+        }
+        @media (max-width: 350px) {
+            .preapproval-disclaimer h2 {
+                font-size: 1rem;
+            }
+        }
+        .preapproval-disclaimer .subheadline_p {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            text-align: left;
+            color: #545d68;
+            margin: 0px;
+        }
+        @media (min-width: 99999999px) {
+            .preapproval-disclaimer .subheadline_p {
+                margin-top: 0px;
+                margin-left: 32px;
+                margin-bottom: 30px;
+            }
+        }
+        @media (min-width: 640px) {
+            .preapproval-disclaimer .subheadline_p {
+                margin-left: 32px;
+                margin-bottom: 30px;
+            }
+        }
+        @media (max-width: 639px) {
+            .preapproval-disclaimer .subheadline_p {
+                padding-bottom: 20px;
+            }
+        }
+        @media (max-width: 350px) {
+            .preapproval-disclaimer .subheadline_p {
+                max-width: 67%;
+            }
+        }
+        .preapproval-disclaimer .subheadline_p span {
+            white-space: nowrap;
+        }
+        @media (min-width: 640px) {
+            .lander .preapproval-disclaimer {
+                margin: 0px;
+            }
+        }
+        @media (max-width: 639px) {
+            .lander .preapproval-disclaimer {
+                margin: 0px;
+            }
+        }
+        .inline-link {
+            text-decoration: underline;
+            color: #0070e0;
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            font-weight: 600;
+        }
+        .inline-link::before {
+            content: " ";
+            visibility: hidden;
+        }
+        .inline-link::after {
+            content: " ";
+            visibility: hidden;
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -2000px 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+        .offer__container.shimmer:first-child {
+            margin-top: 0px;
+        }
+        .offer__container.shimmer:not(:last-child)::after {
+            content: "";
+            border-bottom: 2px solid rgba(196, 196, 196, 0.2);
+            display: block;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        @media (max-width: 639px) {
+            .offer__container.shimmer:not(:last-child)::after {
+                margin-top: 20px;
+                margin-bottom: 5px;
+            }
+        }
+        @media (min-width: 640px) {
+            .offer__container.shimmer:first-child {
+                margin-top: 35px;
+            }
+            .offer__container.shimmer:last-child {
+                margin-bottom: 20px;
+            }
+        }
+        .offer__field-loading {
+            height: 500px;
+            position: relative;
+            background: #eee;
+            height: 20px;
+            margin: 4px 0;
+            animation: shimmer 2s linear infinite;
+            background: linear-gradient(to bottom right, #f1efea 21%, #e4e0d6 25%, #f1efea 29%);
+            background-size: 3000px 1000px;
+            width: 100%;
+        }
+        .offer__col {
+            flex-grow: 1;
+        }
+        .shimmer .offer__col {
+            margin-right: 25px;
+        }
+        .shimmer .offer__col:last-child {
+            margin-right: 0px;
+        }
+        .accordion__header-container.loading {
+            width: auto;
+        }
+        .accordion__container:first-child.shimmer {
+            margin-top: 25px;
+        }
+        @media (max-width: 639px) {
+            .accordion__container:first-child.shimmer {
+                margin-top: 8px;
+            }
+        }
+        .modal-wrapper {
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        @media (max-width: 639px) {
+            .lander .modal-wrapper {
+                position: fixed;
+            }
+        }
+        strong {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            color: #001435;
+        }
+        .offer__container:first-child {
+            margin-top: 16px;
+        }
+        .offer__container:not(:last-child)::after {
+            content: "";
+            border-bottom: 0.5px solid #c6c6c6;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 639px) {
+            .offer__container:not(:last-child)::after {
+                margin-top: 20px;
+                margin-bottom: 5px;
+            }
+        }
+        @media (min-width: 99999999px) {
+            .offer__container:last-child {
+                margin-bottom: 20px;
+            }
+        }
+        @media (min-width: 640px) {
+            .offer__container:first-child {
+                margin-top: 35px;
+            }
+            .offer__container:last-child {
+                margin-bottom: 20px;
+            }
+        }
+        @media (max-width: 639px) {
+            .offer__container:last-child {
+                margin-bottom: 20px;
+            }
+        }
+        .offer__row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .offer__row:first-child {
+            padding-bottom: 10px;
+        }
+        @media (max-width: 639px) {
+            .offer__row:first-child {
+                padding-bottom: 10px;
+            }
+        }
+        .offer__field-header {
+            font-size: 18px;
+        }
+        @media (max-width: 639px) {
+            .offer__field-header {
+                font-size: 18px;
+                margin-top: 16px;
+            }
+        }
+        @media (max-width: 350px) {
+            .offer__field-header {
+                font-size: 1rem;
+            }
+        }
+        .offer__field-col {
+            display: inline-block;
+            max-width: 33.33%;
+        }
+        .offer__field-col:not(:last-child) {
+            flex-grow: 1;
+        }
+        .offer__field-col .v4Design {
+            color: #545d68;
+            font-weight: 400;
+        }
+        .offer__field-title {
+            display: flex;
+            font-size: 18px;
+            color: #515354;
+            margin: 0px;
+        }
+        @media (max-width: 350px) {
+            .offer__field-title {
+                font-size: 18px;
+            }
+        }
+        .offer__field-title:is(strong) {
+            color: #001435;
+        }
+        .offer__field-value {
+            font-size: 18px;
+            color: #515354;
+            margin: 0px;
+        }
+        @media (max-width: 639px) {
+            .offer__field-value {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 350px) {
+            .offer__field-value {
+                font-size: 0.9rem;
+            }
+        }
+        .offer__field-value:is(strong) {
+            color: #001435;
+        }
+        .overlay {
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+        }
+        .product-list-link {
+            display: flex;
+            border: none;
+            background: rgba(0, 0, 0, 0);
+            min-width: 315px;
+            text-decoration: underline;
+            color: #0070e0;
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+        }
+        @media (min-width: 99999999px) {
+            .product-list-link {
+                margin: 0px 0px 20px 30px;
+            }
+        }
+        @media (min-width: 640px) {
+            .product-list-link {
+                margin: 0px 44px 20px 44px;
+            }
+        }
+        @media (max-width: 639px) {
+            .product-list-link {
+                margin: 20px 0px 20px 0px;
+            }
+        }
+        .product-list-link.no-interest {
+            margin: 0px;
+        }
+        @media (max-width: 639px) {
+            .product-list-link.de {
+                margin-top: 0px;
+            }
+        }
+        .donut__single_payment {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+        }
+        @media (max-width: 639px) {
+            .donut__single_payment {
+                width: 70px;
+            }
+        }
+        .donut__single_payment svg {
+            max-width: 64px;
+        }
+        .donut__single_payment.donut__qualifying_payment svg text {
+            color: #001435;
+            transform: translate(1px, 3px);
+        }
+        .donut__single_payment:first-of-type .donut__payment,
+        .donut__single_payment:first-of-type span.donut__payment_v4 {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+        }
+        .donut__single_payment:first-of-type .donut__timestamp,
+        .donut__single_payment:first-of-type span.donut__timestamp_v4 {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+        }
+        .donut__single_payment svg {
+            width: 100%;
+        }
+        .donut__single_payment svg text {
+            font-size: 0.5rem;
+            line-height: 20px;
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            font-weight: 600;
+            color: #515354;
+        }
+        .donut__single_payment svg .donut__background {
+            stroke: #dbd8d0;
+        }
+        .donut__single_payment svg .donut__percent {
+            stroke: #388c00;
+        }
+        .donut__single_payment svg .donut__background__line {
+            stroke: none;
+        }
+        @media (max-height: 700px) {
+            .donut__single_payment svg {
+                max-width: 60px;
+            }
+        }
+        .donut__single_payment span {
+            display: block;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 20px;
+        }
+        @media all and (min-width: 1640px) {
+            .donut__single_payment span {
+                font-size: 0.9rem;
+                line-height: 22px;
+            }
+        }
+        .donut__single_payment span.donut__payment,
+        .donut__single_payment span.donut__payment_v4 {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            color: #001435;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        @media all and (min-width: 1640px) {
+            .donut__single_payment span.donut__payment,
+            .donut__single_payment span.donut__payment_v4 {
+                margin-top: 0.25rem;
+            }
+        }
+        .donut__single_payment span.donut__payment_v4 {
+            color: #545d68;
+        }
+        .donut__single_payment span.donut__timestamp,
+        .donut__single_payment span.donut__timestamp_v4 {
+            color: #001435;
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        @media (min-width: 99999999px) {
+            .donut__single_payment span.donut__timestamp,
+            .donut__single_payment span.donut__timestamp_v4 {
+                line-height: 22px;
+            }
+        }
+        .donut__single_payment span.donut__timestamp_v4 {
+            color: #545d68;
+        }
+        .donut__single_payment_line:first-child svg g,
+        .donut__single_payment_line__3:first-child svg g {
+            fill: #0070e0;
+        }
+        .donut__single_payment_line:first-child span.donut__timestamp_v4,
+        .donut__single_payment_line__3:first-child span.donut__timestamp_v4,
+        .donut__single_payment_line:first-child span.donut__payment_v4,
+        .donut__single_payment_line__3:first-child span.donut__payment_v4 {
+            color: #001435;
+        }
+        .donut__single_payment_line::after,
+        .donut__single_payment_line__3::after {
+            content: "";
+            flex-grow: 1;
+            border-top: 1px dashed #bdbdbd;
+            top: 55px;
+            width: 100%;
+            max-width: 50px;
+            position: absolute;
+            transform: translateX(90%);
+        }
+        @media (max-width: 639px) {
+            .donut__single_payment_line::after,
+            .donut__single_payment_line__3::after {
+                max-width: 45px;
+            }
+        }
+        @media (max-width: 350px) {
+            .donut__single_payment_line::after,
+            .donut__single_payment_line__3::after {
+                max-width: 35px;
+            }
+        }
+        .donut__single_payment_line__3::after {
+            max-width: 85px;
+            transform: translateX(70%);
+        }
+        @media (max-width: 639px) {
+            .donut__single_payment_line__3::after {
+                max-width: min(80px, 20vw);
+                transform: translateX(67%);
+            }
+        }
+        @media (max-width: 350px) {
+            .donut__single_payment_line__3::after {
+                max-width: min(55px, 30vw);
+                transform: translateX(75%);
+            }
+        }
+        .tile {
+            border: 0;
+            margin: 0;
+            font-size: 100%;
+            overflow: visible;
+            text-align: left;
+            text-transform: none;
+            -webkit-appearance: button;
+            width: 100%;
+            height: 98px;
+            padding: 12px 12px 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 31px;
+            background: #fff;
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.04), 0px 1px 12px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+        }
+        .tile:hover {
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.04), 1px 4px 0px rgba(0, 0, 0, 0.08);
+        }
+        .tile:first-of-type {
+            margin-bottom: 16px;
+        }
+        @media (max-width: 639px) {
+            .tile {
+                height: 119px;
+                min-width: 295px;
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 350px) {
+            .tile {
+                min-width: auto;
+            }
+        }
+        .tile__row {
+            display: flex;
+        }
+        .tile__row .tile__col .tile__header {
+            display: flex;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 24px;
+            align-items: center;
+            color: #001435;
+        }
+        .tile__row .tile__col .tile__body {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            margin-top: 5px;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            color: #001435;
+        }
+        .accordion__container {
+            border: 1px solid #dbdddd;
+            border-radius: 12px;
+            font-size: 13px;
+            width: 311px;
+            color: #001435;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 639px) {
+            .accordion__container {
+                width: auto;
+                margin-right: -25px;
+            }
+        }
+        .accordion__container-expanded {
+            height: 242px;
+        }
+        .accordion__container:first-child {
+            margin-top: 35px;
+        }
+        .accordion__container.active {
+            outline: 3px solid #0070e0;
+            border-color: rgba(0, 0, 0, 0);
+        }
+        .accordion__header-container {
+            font-family: PayPalOpen, Helvetica, Arial, Sans-Serif;
+            font-size: 18px;
+            color: #001435;
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 18px 22px 13px;
+            background: none;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+        .accordion__collapsible {
+            display: flex;
+            flex-direction: column;
+            height: 0px;
+            overflow: hidden;
+            transition: height 0.2s linear;
+        }
+        .open .accordion__collapsible {
+            height: 172px;
+            transition: height 0.2s linear;
+        }
+        .accordion__collapsible .accordion__row {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 18px 0px 13px;
+        }
+        .accordion__collapsible .accordion__row:first-child {
+            padding-top: 0px;
+        }
+        .accordion__collapsible .accordion__row:first-child .accordion__offer-field-title {
+            color: #0070e0;
+        }
+        .accordion__collapsible .accordion__row .accordion__offer-apr-disclaimer {
+            color: #515354;
+            line-height: 1.3;
+            padding-bottom: 9px;
+        }
+    </style>
+    <div class="modal-wrapper">
+        <div class="spinner" style="opacity: 0;"></div>
+        <div class="overlay"></div>
+        <div class="content__wrapper-overflow">
+            <div tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="header__headline" class="content__wrapper">
+                <div aria-hidden="true" class="header__fixed-wrapper header__fixed-wrapper--front"><div class="header__background-wrapper header__background-wrapper--gradient"></div></div>
+                <div aria-hidden="true" class="header__fixed-wrapper"><div class="header__background-wrapper"></div></div>
+                <div class="header__icons">
+                    <div class="logo__wrapper">
+                        <div class="pp-logo">
+                            <svg role="img" aria-label="PayPal" width="45" height="45" viewBox="0 0 258 258" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <title>PayPal</title>
+                                <path
+                                    d="M190.709 84.0373C191.182 59.4578 170.902 40.5938 143.016 40.5938H85.3376C83.9939 40.594 82.6944 41.0737 81.6729 41.9467C80.6514 42.8197 79.975 44.0286 79.7654 45.3558L56.6551 189.763C56.5517 190.418 56.5913 191.086 56.7713 191.724C56.9513 192.361 57.2673 192.952 57.6976 193.456C58.1278 193.96 58.6622 194.364 59.2638 194.641C59.8654 194.919 60.5199 195.062 61.1823 195.062H95.353L90.0133 228.507C89.9103 229.161 89.9502 229.83 90.1303 230.467C90.3105 231.104 90.6265 231.695 91.0568 232.198C91.487 232.702 92.0212 233.106 92.6227 233.383C93.2241 233.66 93.8784 233.804 94.5406 233.804H122.377C123.72 233.804 124.918 233.324 125.939 232.451C126.961 231.578 127.127 230.369 127.336 229.042L135.506 180.965C135.715 179.638 136.391 177.918 137.413 177.044C138.434 176.171 139.326 175.691 140.67 175.69H157.705C185.013 175.69 208.185 156.28 212.421 129.283C215.418 110.118 207.202 92.6834 190.709 84.0373Z"
+                                    fill="#001C64"
+                                ></path>
+                                <path
+                                    d="M102.745 141.81L94.2348 195.776L88.8951 229.629C88.792 230.283 88.8319 230.952 89.0121 231.589C89.1922 232.227 89.5083 232.817 89.9385 233.321C90.3688 233.824 90.903 234.228 91.5044 234.505C92.1058 234.783 92.7601 234.926 93.4223 234.926H122.881C124.225 234.926 125.524 234.446 126.546 233.573C127.567 232.7 128.244 231.491 128.453 230.164L136.215 180.964C136.424 179.637 137.1 178.427 138.122 177.554C139.143 176.681 140.443 176.2 141.787 176.2H159.129C186.437 176.2 209.608 156.279 213.844 129.282C216.848 110.119 207.202 92.6847 190.709 84.0387C190.669 86.0796 190.49 88.1155 190.174 90.1322C185.94 117.127 162.765 137.05 135.459 137.05H108.318C106.974 137.05 105.674 137.53 104.653 138.403C103.631 139.276 102.955 140.483 102.745 141.81Z"
+                                    fill="#0070E0"
+                                ></path>
+                                <path
+                                    d="M94.2305 195.776H59.9576C59.2953 195.776 58.6408 195.633 58.0392 195.356C57.4376 195.079 56.9032 194.675 56.4729 194.171C56.0426 193.668 55.7265 193.077 55.5466 192.44C55.3666 191.802 55.3269 191.133 55.4304 190.479L78.5407 43.927C78.7503 42.5998 79.4267 41.3909 80.4482 40.5179C81.4697 39.645 82.7692 39.1652 84.1129 39.165H143.017C170.903 39.165 191.183 59.4588 190.709 84.0384C183.77 80.4003 175.618 78.3172 166.685 78.3172H117.576C116.231 78.3175 114.932 78.7976 113.91 79.671C112.889 80.5444 112.212 81.7538 112.003 83.0815L102.75 141.81L94.2305 195.776Z"
+                                    fill="#003087"
+                                ></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <button aria-label="Close" type="button" id="close-btn" aria-keyshortcuts="escape" class="close">
+                        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0L0 12" transform="translate(12 12)" stroke="#2C2E2F" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M0 0L12 12" transform="translate(12 12)" stroke="#2C2E2F" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </button>
+                    
+                    <script>
+                        // Get the close button element
+                        var closeButton = document.getElementById('close-btn');
+                    
+                        // Add click event listener to the close button
+                        closeButton.addEventListener('click', function () {
+                            // Navigate back in the browser history
+                            window.history.back();
+                        });
+                    </script>
+                    
+                    <div class="header__fixed-wrapper header__fixed-wrapper--front"><div class="header__background-wrapper header__background-wrapper--sticky"></div></div>
+                </div>
+                <div class="header__content">
+                    <svg aria-hidden="true" width="338" height="176" fill="none" xmlns="http://www.w3.org/2000/svg" class="background-desktop">
+                        <g clip-path="url(#a)">
+                            <path
+                                d="M567.776 343.886c6.328 141.338-96.231 270.858-230.763 292.751-48.569 7.903-95.992 5.467-144.944 6.446-31.257.621-36.367 8.022-41.023 31.276-14.781 73.773-23.592 148.644-35.412 222.966-4.776 23.874-1.815 63.268-35.508 63.53-52.31.128-104.62.128-156.93 0a23.88 23.88 0 0 1-23.463-17.279 23.87 23.87 0 0 1-.63-10.344c2.65-17.118 28.869-183.357 28.869-183.357l46.42-294.017S20.024 167.166 22.15 154.465c2.58-15.734 13.468-25.212 29.347-26.119 86.918-.215 173.813-.12 260.731-.191 43.172 0 88.351 4.99 129.589 25.331 71.349 32.756 121.781 107.173 125.984 185.625l-.024 4.775Z"
+                                fill="#FFD140"
+                            ></path>
+                            <path
+                                d="M607.437 149.079c4.243 94.795-64.519 181.663-154.717 196.346-32.564 5.3-64.359 3.667-97.179 4.323-20.957.417-24.383 5.381-27.505 20.977-9.91 49.479-15.817 99.694-23.742 149.541-3.202 16.013-1.217 42.433-23.807 42.609a21453.9 21453.9 0 0 1-105.215 0 16.01 16.01 0 0 1-16.154-18.526c1.777-11.481 19.356-122.976 19.356-122.976l31.123-197.195s30.594-193.623 32.019-202.142c1.729-10.552 9.029-16.91 19.676-17.518 58.275-.144 116.534-.08 174.81-.128 28.945 0 59.235 3.347 86.884 16.99 47.837 21.969 81.649 71.88 84.467 124.497l-.016 3.202Z"
+                                fill="#0070E0"
+                            ></path>
+                            <mask id="b" maskUnits="userSpaceOnUse" x="-137" y="128" width="901" height="1121">
+                                <path
+                                    d="M763.592 418.372c8.512 190.17-129.457 364.438-310.439 393.895-65.338 10.633-129.135 7.356-194.988 8.673-42.049.835-48.923 10.794-55.187 42.082-19.884 99.261-31.738 199.998-47.639 299.998-6.425 32.12-2.441 85.13-47.767 85.48-70.371.17-140.743.17-211.114 0-4.702.1-9.37-.83-13.672-2.73a32.17 32.17 0 0 1-11.226-8.27 32.185 32.185 0 0 1-6.666-12.25 32.144 32.144 0 0 1-.848-13.92c3.566-23.03 38.837-246.702 38.837-246.702L-34.67 569.03s61.387-388.434 64.246-405.524c3.47-21.169 18.117-33.922 39.479-35.143 116.928-.289 233.825-.16 350.753-.257 58.079 0 118.856 6.714 174.333 34.083 95.984 44.073 163.828 144.201 169.482 249.758l-.032 6.425Z"
+                                    fill="#FFD140"
+                                ></path>
+                            </mask>
+                            <g mask="url(#b)">
+                                <path
+                                    d="M593.053 238.889c4.243 94.795-64.526 181.664-154.734 196.348-32.567 5.3-64.366 3.667-97.189 4.323-20.959.417-24.385 5.381-27.508 20.977-9.911 49.479-15.819 99.695-23.745 149.543-3.202 16.013-1.217 42.434-23.809 42.61-35.075.085-70.151.085-105.227 0a16.005 16.005 0 0 1-12.41-5.485 16.011 16.011 0 0 1-3.745-13.042c1.777-11.481 19.358-122.978 19.358-122.978l31.126-197.196s30.598-193.627 32.023-202.145c1.729-10.553 9.03-16.91 19.678-17.518 58.281-.144 116.547-.08 174.828-.128 28.949 0 59.242 3.346 86.894 16.989 47.842 21.97 81.658 71.881 84.476 124.499l-.016 3.203Z"
+                                    fill="#003087"
+                                ></path>
+                            </g>
+                        </g>
+                        <defs>
+                            <clipPath id="a"><path fill="#fff" d="M0 0h466v176H0z"></path></clipPath>
+                        </defs>
+                    </svg>
+                    <svg aria-hidden="true" width="285" height="196" viewBox="0 0 285 196" fill="none" xmlns="http://www.w3.org/2000/svg" class="background-mobile">
+                        <g clip-path="url(#clip0_793_1319)">
+                            <path
+                                d="M568.292 364.045C574.62 505.383 472.062 634.903 337.529 656.796C288.96 664.698 241.537 662.263 192.586 663.242C161.329 663.863 156.219 671.264 151.563 694.518C136.782 768.291 127.97 843.161 116.15 917.483C111.375 941.358 114.336 980.751 80.643 981.014C28.3329 981.141 -23.9771 981.141 -76.2873 981.014C-79.7829 981.089 -83.2524 980.395 -86.4505 978.982C-89.6487 977.569 -92.4974 975.471 -94.7955 972.836C-97.0936 970.202 -98.7851 967.095 -99.7502 963.734C-100.715 960.374 -100.93 956.843 -100.381 953.391C-97.7302 936.273 -71.5115 770.034 -71.5115 770.034L-25.0913 476.017C-25.0913 476.017 20.5407 187.325 22.6659 174.623C25.2448 158.89 36.1333 149.412 52.0125 148.504C138.931 148.289 225.825 148.385 312.743 148.313C355.916 148.313 401.094 153.303 442.333 173.644C513.682 206.4 564.114 280.818 568.316 359.27L568.292 364.045Z"
+                                fill="#FFD140"
+                            ></path>
+                            <path
+                                d="M607.954 147.238C612.196 242.032 543.435 328.9 453.236 343.584C420.673 348.884 388.877 347.251 356.057 347.907C335.101 348.323 331.675 353.288 328.553 368.884C318.643 418.362 312.735 468.578 304.81 518.425C301.608 534.437 303.594 560.858 281.004 561.034C245.932 561.12 210.86 561.12 175.788 561.034C173.445 561.084 171.119 560.619 168.974 559.672C166.83 558.724 164.92 557.317 163.379 555.55C161.839 553.783 160.704 551.699 160.057 549.445C159.41 547.191 159.266 544.823 159.635 542.508C161.412 531.027 178.99 419.531 178.99 419.531L210.113 222.337C210.113 222.337 240.708 28.7132 242.133 20.1946C243.862 9.64232 251.162 3.28533 261.808 2.67686C320.084 2.53275 378.343 2.59687 436.618 2.54883C465.564 2.54883 495.854 5.89542 523.503 19.5381C571.34 41.5073 605.152 91.4184 607.97 144.036L607.954 147.238Z"
+                                fill="#0070E0"
+                            ></path>
+                            <mask id="mask0_793_1319" maskUnits="userSpaceOnUse" x="-136" y="148" width="901" height="1121">
+                                <path
+                                    d="M764.108 438.531C772.621 628.7 634.652 802.969 453.67 832.426C388.331 843.059 324.534 839.782 258.682 841.099C216.633 841.934 209.758 851.893 203.494 883.181C183.61 982.442 171.756 1083.18 155.855 1183.18C149.431 1215.3 153.414 1268.31 108.088 1268.66C37.7171 1268.83 -32.654 1268.83 -103.025 1268.66C-107.728 1268.76 -112.395 1267.83 -116.697 1265.93C-121 1264.02 -124.832 1261.2 -127.924 1257.66C-131.015 1254.11 -133.291 1249.93 -134.589 1245.41C-135.887 1240.89 -136.177 1236.14 -135.437 1231.49C-131.872 1208.46 -96.6005 984.786 -96.6005 984.786L-34.1528 589.189C-34.1528 589.189 27.2346 200.754 30.0935 183.665C33.5628 162.496 48.2107 149.743 69.5726 148.522C186.501 148.233 303.397 148.362 420.326 148.265C478.405 148.265 539.182 154.979 594.658 182.348C690.643 226.421 758.487 326.549 764.14 432.106L764.108 438.531Z"
+                                    fill="#FFD140"
+                                ></path>
+                            </mask>
+                            <g mask="url(#mask0_793_1319)">
+                                <path
+                                    d="M593.57 239.047C597.813 333.843 529.044 420.712 438.836 435.396C406.268 440.696 374.47 439.062 341.646 439.719C320.687 440.135 317.261 445.099 314.139 460.696C304.228 510.175 298.319 560.391 290.394 610.239C287.192 626.251 289.177 652.672 266.585 652.849C231.509 652.934 196.434 652.934 161.358 652.849C159.014 652.899 156.688 652.434 154.543 651.486C152.399 650.538 150.489 649.131 148.948 647.364C147.407 645.597 146.272 643.513 145.625 641.259C144.978 639.006 144.834 636.637 145.203 634.322C146.98 622.841 164.56 511.344 164.56 511.344L195.687 314.147C195.687 314.147 226.284 120.521 227.709 112.002C229.439 101.45 236.74 95.093 247.387 94.4845C305.669 94.3404 363.934 94.4045 422.216 94.3564C451.164 94.3564 481.458 97.7031 509.11 111.346C556.952 133.315 590.768 183.227 593.586 235.845L593.57 239.047Z"
+                                    fill="#003087"
+                                ></path>
+                            </g>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_793_1319"><rect width="466" height="196" fill="white"></rect></clipPath>
+                        </defs>
+                    </svg>
+                    <h2 id="header__headline" class="headline-us">Pay Monthly</h2>
+                    <p class="subheadline_p subheadline-us">Get more time to pay, with no down payment or late fees.</p>
+                </div>
+                <div class="content__container">
+                    <main class="main">
+                        <div class="content__body">
+                            <style>
+                                .spinner {
+                                    display: block;
+                                    position: absolute;
+                                    left: 50%;
+                                    top: 50%;
+                                    border-radius: 50%;
+                                    border-top: 4px solid #00ff7f;
+                                    width: 80px;
+                                    height: 80px;
+                                    opacity: 0;
+                                    -webkit-animation: spin 2s linear infinite;
+                                    animation: spin 2s linear infinite;
+                                    transition: opacity 0.2s;
+                                    pointer-events: none;
+                                    transform-origin: 0 0;
+                                    z-index: 5;
+                                }
+                                .nav__link-prefix {
+                                    min-width: 315px;
+                                    padding: 0px;
+                                    font-size: 14px;
+                                    margin: 0px;
+                                }
+                                @media (min-width: 640px) {
+                                    .nav__link-prefix {
+                                        margin: 0px 44px 0px 44px;
+                                    }
+                                }
+                                @media (min-width: 99999999px) {
+                                    .nav__link-prefix {
+                                        margin-left: 30px;
+                                    }
+                                }
+                                @media (max-width: 639px) {
+                                    .nav__link-prefix {
+                                        margin-top: 20px;
+                                        margin-left: 0px;
+                                    }
+                                }
+                            </style>
+                            <div class="content__row dynamic">
+                                <div class="content__col">
+                                    <div class="calculator">
+                                        <form class="form">
+                                            <h4 class="title">Your Purchase Ammount</h4>
+                                            <div class="input__wrapper transitional">
+                                                <div class="input__label US">Purchase amount</div>
+                                                <input aria-required="true" placeholder="$2.531" type="text" inputmode="tel" class="input" disabled/>
+                                            </div>
+                                            <div aria-live="polite"></div>
+                                        </form>
+                                        <div aria-live="polite" class="content-column">
+                                            <div class="offer__wrapper">
+                                                <div class="offer__container">
+                                                    <div class="offer__row">
+                                                        <strong class="offer__field-header">$449.11/<span aria-hidden="true">mo.</span><span class="sr-only">month.</span> for 6 months</strong>
+                                                    </div>
+                                                    <div class="offer__row">
+                                                        <div class="offer__field-col">
+                                                            <p class="offer__field-title"><span aria-hidden="true">Est. APR*</span><span class="sr-only">Estimated APR, see star for more details below.</span></p>
+                                                            <div class="offer__field-value">22%</div>
+                                                        </div>
+                                                        <div class="offer__field-col">
+                                                            <p class="offer__field-title">Interest</p>
+                                                            <p class="offer__field-value">$164.07</p>
+                                                        </div>
+                                                        <div class="offer__field-col"><strong class="offer__field-title">Total</strong><strong class="offer__field-value">$2,694.68</strong></div>
+                                                    </div>
+                                                </div>
+                                                <div class="offer__container">
+                                                    <div class="offer__row">
+                                                        <strong class="offer__field-header">$236.80/<span aria-hidden="true">mo.</span><span class="sr-only">month.</span> for 12 months</strong>
+                                                    </div>
+                                                    <div class="offer__row">
+                                                        <div class="offer__field-col">
+                                                            <p class="offer__field-title"><span aria-hidden="true">Est. APR*</span><span class="sr-only">Estimated APR, see star for more details below.</span></p>
+                                                            <div class="offer__field-value">22%</div>
+                                                        </div>
+                                                        <div class="offer__field-col">
+                                                            <p class="offer__field-title">Interest</p>
+                                                            <p class="offer__field-value">$311.03</p>
+                                                        </div>
+                                                        <div class="offer__field-col"><strong class="offer__field-title">Total</strong><strong class="offer__field-value">$2,841.64</strong></div>
+                                                    </div>
+                                                </div>
+                                                <div class="offer__container">
+                                                    <div class="offer__row">
+                                                        <strong class="offer__field-header">$131.24/<span aria-hidden="true">mo.</span><span class="sr-only">month.</span> for 24 months</strong>
+                                                    </div>
+                                                    <div class="offer__row">
+                                                        <div class="offer__field-col">
+                                                            <p class="offer__field-title"><span aria-hidden="true">Est. APR*</span><span class="sr-only">Estimated APR, see star for more details below.</span></p>
+                                                            <div class="offer__field-value">22%</div>
+                                                        </div>
+                                                        <div class="offer__field-col">
+                                                            <p class="offer__field-title">Interest</p>
+                                                            <p class="offer__field-value">$619.17</p>
+                                                        </div>
+                                                        <div class="offer__field-col"><strong class="offer__field-title">Total</strong><strong class="offer__field-value">$3,149.78</strong></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="finance-terms__disclaimer">*Fixed APR is 9.99% to 35.99% based on your credit. Rates as low as 4.99% from time to time. Terms may vary based on purchase amount.</div>
+                                    </div>
+                                    <div class="content__col"><div class="branded-image"></div></div>
+                                </div>
+                                <div class="content__row instructions">
+                                    <ol>
+                                        <li class="instructions__item-wrapper">
+                                            <div class="instructions__bullet"><span>1.</span></div>
+                                            <div>Choose PayPal at checkout to pay later with <strong>Pay Monthly</strong>.</div>
+                                        </li>
+                                        <li class="instructions__item-wrapper">
+                                            <div class="instructions__bullet"><span>2.</span></div>
+                                            <div>Get a decision in seconds and complete your purchase.</div>
+                                        </li>
+                                        <li class="instructions__item-wrapper">
+                                            <div class="instructions__bullet"><span>3.</span></div>
+                                            <div>Kindly transfer to merchant virtual account <b>12345678</b></div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="content__row disclosure">
+                                <span>
+                                    Pay Monthly is subject to consumer credit approval. Payments may change based on shipping, taxes, updates to your purchase, or missed payments. Offer availability depends on the merchant and may not be
+                                    available for subscriptions or recurring payments. Pay Monthly is currently not available to residents of <span aria-hidden="true">AK, HI, MA, NV, NY or TX</span>
+                                    <span class="sr-only">Alaska, Hawaii, Massachusetts, Nevada, New York or Texas</span>. You must be 18 years old or older to apply. Missed payments may have an impact on your credit score. The lender for Pay
+                                    Monthly is WebBank. PayPal, Inc. (NMLS #910457): <span aria-hidden="true">CT</span><span class="sr-only">Connecticut</span> Small Loan Licensee. <span aria-hidden="true">RI</span>
+                                    <span class="sr-only">Rhode Island</span> Loan Broker Licensee. <span aria-hidden="true">VT</span><span class="sr-only">Vermont</span> Loan Solicitation Licensee. <span aria-hidden="true">VT</span>
+                                    <span class="sr-only">Vermont</span> residents:
+                                </span>
+                                <a aria-label="Find more disclosures, opens new tab" target="__blank" href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" class="inline-link">Find more disclosures</a>
+                                <span>by going to PayPal's page on Pay Later.</span>
+                            </div>
+                            <button id="productListLink" type="button" class="content__row product-list-link us">See other ways to pay over time</button>
+                            <button id="productListLink" type="button" class="content__row product-list-link us"><a href="home.html">I have completed the payment (back to home)</a></button>
+
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script data-uid="uid_usmkrpfzhpllrvwiskzzxldxgkdxxr">
+        (function createSdkScript(formattedSdkUrl, allowedAttrs) {
+            function htmlDecode(text) {
+                return text
+                    .replace(/&amp;/g, "&")
+                    .replace(/&lt;/g, "<")
+                    .replace(/&gt;/g, ">")
+                    .replace(/&quot;/g, '"')
+                    .replace(/&#39;/g, "'")
+                    .replace(/&#x2F;/g, "/");
+            }
+            function grabQueryParameters() {
+                return window.location.search
+                    .substr(1)
+                    .split("&")
+                    .reduce(function (acc, param) {
+                        const splitParams = param.split("=");
+                        const key = splitParams[0];
+                        const value = splitParams[1];
+                        acc[key] = value;
+                        return acc;
+                    }, {});
+            }
+            function getSDKScriptAttributes(allAttrs) {
+                const attrs = {};
+                Object.keys(allAttrs).forEach(function (key) {
+                    if (allowedAttrs.indexOf(key) > -1 && /^[a-zA-Z0-9.-_=,]*$/.test(allAttrs[key])) {
+                        attrs[key] = allAttrs[key];
+                    }
+                });
+                return attrs;
+            }
+            const queryParams = grabQueryParameters();
+            const sdkPath = htmlDecode(formattedSdkUrl);
+            let attrs;
+            let sdkQueryParams;
+            if (queryParams.sdkMeta) {
+                let parsedSdkMeta;
+                let clientSideUrl;
+                try {
+                    parsedSdkMeta = JSON.parse(atob(decodeURIComponent(queryParams.sdkMeta)));
+                    clientSideUrl = parsedSdkMeta.url;
+                    attrs = parsedSdkMeta.attrs;
+                } catch (error) {
+                    throw new Error("Invalid sdkMeta");
+                }
+                if (!parsedSdkMeta || !clientSideUrl || !attrs) {
+                    throw new Error("Invalid sdkMeta");
+                }
+                const a = document.createElement("a");
+                a.href = clientSideUrl;
+                sdkQueryParams = a.search;
+                if (!sdkQueryParams) {
+                    throw new Error("Invalid sdkMeta");
+                }
+            } else {
+                attrs = {
+                    "data-uid": queryParams.scriptUID,
+                };
+                sdkQueryParams = "";
+            }
+            const validAttrs = getSDKScriptAttributes(attrs);
+            const script = document.createElement("script");
+            script.setAttribute("src", sdkPath + sdkQueryParams);
+            script.onload = () => {
+                if (typeof window.onSdkLoad === "function") {
+                    window.onSdkLoad();
+                }
+            };
+            Object.keys(validAttrs).forEach(function (key) {
+                script.setAttribute(key, validAttrs[key]);
+            });
+            document.body.appendChild(script);
+        })("https:&#x2F;&#x2F;www.paypal.com&#x2F;sdk&#x2F;js", ["data-amount", "data-client-token", "data-merchant-id", "data-partner-attribution-id", "data-enable-3ds", "data-sdk-integration-source", "data-client-metadata-id", "data-uid"]);
+    </script>
+    <script src="https://www.paypal.com/sdk/js?&amp;client-id=AbFtVFFtGnksUAQYF8Qbf5QqBESDmzEOMdswUAUn8gHJ91cVdPYw-DalK46pJ9TpdqQn20orTXafAECZ&amp;components=messages" data-uid="uid_usmkrpfzhpllrvwiskzzxldxgkdxxr"></script>
+    <script src="https://www.paypalobjects.com/upstream/bizcomponents/js/versioned/smart-credit-modal-v2@1.53.0.js"></script>
+    <script>
+        if (typeof window.crc === "undefined") {
+            let script = document.createElement("script");
+            script.setAttribute("src", "https://www.paypalobjects.com/upstream/bizcomponents/js/smart-credit-modal-v2.js");
+            script.onload = () => {
+                if (typeof window.onFallbackLoad() !== "undefined") {
+                    window.onFallbackLoad();
+                }
+            };
+            document.body.appendChild(script);
+        }
+    </script>
+     
+     <script>
+        function fromBinary(binary) {
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < bytes.length; i++) {
+                bytes[i] = binary.charCodeAt(i);
+            }
+            return String.fromCharCode.apply(null, new Uint16Array(bytes.buffer));
+        }
+        var parsedData = JSON.parse(fromBinary(atob(document.firstChild.nodeValue)));
+        function initializeComponent() {
+            if (typeof window.xprops !== "undefined") {
+                crc.setupModal(parsedData);
+            } else {
+                window.onSdkLoad = () => crc.setupModal(parsedData);
+            }
+        }
+        if (typeof window.crc !== "undefined") {
+            initializeComponent();
+        } else {
+            window.onFallbackLoad = () => initializeComponent();
+        }
+    </script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Product - Cindy Ecommerce</title>
+        <script>
+            //<![CDATA[
+            window.gon = {};
+            gon.user = {
+                "login": false,
+                "bot": false,
+                "lang": "en"
+            };
+        </script>
+        <link rel="stylesheet" media="all" href="css/main.css"/>
+        <link rel="stylesheet" media="screen" href="css/typography.css"/>
+        <link rel="apple-touch-icon" href="images/buyma_logo.png"/>
+        <link rel="stylesheet" media="screen" href="css/product.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <style>
+            /* Additional styling for better appearance */
+            .item-images-wrap {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .item-image {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                margin: 0 auto;
+            }
+            .js-thumb-image {
+                cursor: pointer;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <style>
+                .item-detail__color-size-list {
+                    display: none;
+                }
+                .item-detail__color-size-list.visible {
+                    display: block;
+                }
+        </style>
+        <!--Invoice paypal-->
+        <script src="https://www.paypal.com/sdk/js?&amp;client-id=AbFtVFFtGnksUAQYF8Qbf5QqBESDmzEOMdswUAUn8gHJ91cVdPYw-DalK46pJ9TpdqQn20orTXafAECZ&amp;components=messages"></script>
+    </head>
+    <body>
+        <div class="js-ajax-spinner"></div>
+        <div class="js-modal-contents"></div>
+        <input class="visuallyhidden" id="burger-state" type="checkbox"/>
+        <header class="header" id="js-header">
+            <a class="header__bar js-header-top" data-navi-evt="header" href="" style="background-color: #d8ffa2;">
+                <span class="header__next" style="color: #000000;">New Year Sale Up to 90% OFF</span>
+            </a>
+            <div aria-hidden="true" class="header__strut" role="presentation"></div>
+            <div class="header__detachable js-header-content">
+                <!--Logo-->
+                <div class="header__top">                 
+                    <label class="header__burger" for="burger-state" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                          </svg>
+                        Toggle navigation
+                    </label>
+                    <div class="header__coupon">
+                        <a class="menu__shipping js-top-coupon-picker" data-coupon-code="BMNM1000" data-et="brands,click,/nav/freeshipping/more" data-navi-evt="header">FREE SHIPPING + $10 USD OFF COUPON</a>
+                    </div>
+                    <a style="display: block; max-width: 100%; height: auto; text-decoration: none;" 
+                    data-et="brands,click,/nav/logo" data-navi-evt="header" href="home.html">
+                     <img src="/images/buyma_logo.png" alt="BUYMA Logo">
+                 </a>                 
+                 <!--Flag Logo-->
+                    <div class="header__actions">
+                        <div class="header__icons">
+                            <div class="header__profile js-location-selector">
+                                <img src="images/indonesia.png" alt="Flag Image">
+                            </div>
+                            <!--Profile Icon-->
+                            <div class="header__profile">
+                                <a class="header__user-link js-disable-link-navigation-on-mobile" data-navi-evt="header" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                    </svg>
+                                </a>
+                                
+                                <div class="header__user-dropdown">
+                                    <section class="bmg-l-header__drop-menu bmg-u-dn" id="js-header-drop-menu">
+                                        <div class="drop-menu--wrap">
+                                            <ul>
+                                                <li>
+                                                    <a id="loggedInLink" data-navi-evt="header" data-et="drop_menu,click,login" href="">Logged in as Admin</a>
+                                                </li>
+                                                <script>
+                                                    // Disable the link
+                                                    document.getElementById("loggedInLink").addEventListener("click", function(event) {
+                                                        event.preventDefault(); // Prevent the default action of the link
+                                                    });
+                                                </script>
+                                                
+                                                <li>
+                                                    <a data-navi-evt="header" data-et="drop_menu,click,register" href="/index.html">Log Out</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!--Inovice Icon-->
+                            <div class="header__fav" id="paypal-container">
+                                <a data-navi-evt="header" href="invoice.html" onclick="loadPayPalScript()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+                                        <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z"/>
+                                        <path d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <script>
+                                function loadPayPalScript() {
+                                    // Create a script element
+                                    var script = document.createElement('script');
+                            
+                                    // Set the script source attribute
+                                    script.src = "https://www.paypal.com/sdk/js?&client-id=AbFtVFFtGnksUAQYF8Qbf5QqBESDmzEOMdswUAUn8gHJ91cVdPYw-DalK46pJ9TpdqQn20orTXafAECZ&components=messages";
+                            
+                                    // Append the script to the document body
+                                    document.body.appendChild(script);
+                                }
+                            </script>
+                            
+
+
+                            <!--Checkout Icon-->
+                            <div class="header__profile">
+                                <a class="header__fav " data-navi-evt="header" data-et="brands,click,/nav/shopping_bag" href="/checkout.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="30" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                                      </svg>
+                                    <!-- <div class="header__bag js-line-item-count">3</div> -->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__bottom">
+                    <div class="header__search--sp">
+                        <div class="search js-search-keyword-navigation">
+                            <input class="js-search-keyword-navigation-input search__input" placeholder="Search is disable for meantime" type="text" value="">
+                            <button class="js-search-keyword-navigation-button search__submit" type="submit">Search</button><div class="js-suggest"></div></div></div>
+                    <div class="header__nav">
+                        <div class="menu">
+                            <div class="menu__item">
+                                <a class="menu__link" data-et="brands,click,/items/find/?tags=445&amp;sort=newest" data-navi-evt="header" href="/items/find/?tags=445&amp;sort=newest">
+                                    <span class="menu__label">NEW ARRIVALS</span>
+                                </a>
+                            </div>
+                            <div class="menu__item">
+                                <a class="menu__link" data-et="brands,click,/contents/sale/" data-navi-evt="header" href="/contents/sale/">
+                                    <span class="menu__label">SALE</span>
+                                </a>
+                            </div>
+                            <div class="menu__item menu__item--women js-toggle-expand-wrapper">
+                                <a class="menu__link js-disable-link-navigation-on-mobile js-toggle-expand-trigger" data-et="brands,click,/items/find/?tags=445" data-navi-evt="header" href="/items/find/?tags=445">
+                                    <span class="menu__label">DESIGNERS</span>
+                                </a>
+                                <div class="menu__dropdown js-toggle-expand-target">
+                                    <div class="menu__wrapper">
+                                        <div class="menu__section">
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/balenciaga/" href="/brands/balenciaga/">BALENCIAGA</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/berluti/" href="/brands/berluti/">Berluti</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/bottega-veneta/" href="/brands/bottega-veneta/">BOTTEGA VENETA</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/burberry/" href="/brands/burberry/">Burberry</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/cartier/" href="/brands/cartier/">Cartier</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/celine/" href="/brands/celine/">CELINE</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/chanel/" href="/brands/chanel/">CHANEL</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/christian-dior/" href="/brands/christian-dior/">Christian Dior</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/christian-louboutin/" href="/brands/christian-louboutin/">Christian Louboutin</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/chrome-hearts/" href="/brands/chrome-hearts/">CHROME HEARTS</a>
+                                                </div>
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/dolce-and-gabbana/" href="/brands/dolce-and-gabbana/">Dolce &amp;Gabbana</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/fendi/" href="/brands/fendi/">FENDI</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/givenchy/" href="/brands/givenchy/">GIVENCHY</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/goyard/" href="/brands/goyard/">GOYARD</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/gucci/" href="/brands/gucci/">GUCCI</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/hermes/" href="/brands/hermes/">HERMES</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/jimmy-choo/" href="/brands/jimmy-choo/">Jimmy Choo</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/loewe/" href="/brands/loewe/">LOEWE</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/louis-vuitton/" href="/brands/louis-vuitton/">Louis Vuitton</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/manolo-blahnik/" href="/brands/manolo-blahnik/">Manolo Blahnik</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section">
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/maxmara/" href="/brands/maxmara/">MaxMara</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/moncler/" href="/brands/moncler/">MONCLER</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/prada/" href="/brands/prada/">PRADA</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/rimowa/" href="/brands/rimowa/">RIMOWA</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/saint-laurent/" href="/brands/saint-laurent/">Saint Laurent</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/stella-mccartney/" href="/brands/stella-mccartney/">Stella McCartney</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/tiffany-and-co/" href="/brands/tiffany-and-co/">Tiffany &amp;Co</a>
+                                                    <a class="menu__sub-link" data-navi-evt="header" data-et="brands,click,/valentino/" href="/brands/valentino/">VALENTINO</a>
+                                                    <a class="menu__sub-link menu__sub-link--view-all" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">View all</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="menu__close" type="button">Close menu</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu__item menu__item--women js-toggle-expand-wrapper">
+                                <a class="menu__link js-disable-link-navigation-on-mobile js-toggle-expand-trigger" data-et="brands,click,/items/find/women/" data-navi-evt="header" href="/items/find/women/">
+                                    <span class="menu__label">WOMEN</span>
+                                </a>
+                                <div class="menu__dropdown js-toggle-expand-target">
+                                    <div class="menu__wrapper">
+                                        <div class="menu__section">
+                                            <a class="menu__heading" data-et="brands,click,/items/find/women/clothing/" data-navi-evt="header" href="/items/find/women/clothing/">CLOTHING</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/activewear/" data-navi-evt="header" href="/items/find/women/clothing/activewear/">Activewear</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/bottoms/" data-navi-evt="header" href="/items/find/women/clothing/bottoms/">Bottoms</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/dresses/" data-navi-evt="header" href="/items/find/women/clothing/dresses/">Dresses</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/intimates/" data-navi-evt="header" href="/items/find/women/clothing/intimates/">Intimates</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/jumpsuits-rompers/" data-navi-evt="header" href="/items/find/women/clothing/jumpsuits-rompers/">Jumpsuits &amp;Rompers</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/kimono/" data-navi-evt="header" href="/items/find/women/clothing/kimono/">Kimono</a>
+                                                </div>
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/maternity/" data-navi-evt="header" href="/items/find/women/clothing/maternity/">Maternity</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/outerwear/" data-navi-evt="header" href="/items/find/women/clothing/outerwear/">Outerwear</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/sweaters/" data-navi-evt="header" href="/items/find/women/clothing/sweaters/">Sweaters</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/swimwear/" data-navi-evt="header" href="/items/find/women/clothing/swimwear/">Swimwear</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/clothing/tops/" data-navi-evt="header" href="/items/find/women/clothing/tops/">Tops</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section">
+                                            <a class="menu__heading" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">FEATURED BRANDS</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/chanel/women/clothing/" data-navi-evt="header" href="/items/find/chanel/women/clothing/">CHANEL</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/christian-dior/women/clothing/" data-navi-evt="header" href="/items/find/christian-dior/women/clothing/">Christian Dior</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/dolce-and-gabbana/women/clothing/" data-navi-evt="header" href="/items/find/dolce-and-gabbana/women/clothing/">Dolce & Gabbana</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/fendi/women/clothing/" data-navi-evt="header" href="/items/find/fendi/women/clothing/">FENDI</a>
+                                                </div>
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/louis-vuitton/women/clothing/" data-navi-evt="header" href="/items/find/louis-vuitton/women/clothing/">Louis Vuitton</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/moncler/women/clothing/" data-navi-evt="header" href="/items/find/moncler/women/clothing/">MONCLER</a>
+                                                    <a class="menu__sub-link menu__sub-link--view-all" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">View all</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__addition">
+                                            <a class="brick" data-navi-evt="header" href="/items/find/women/clothing/?seasons=23FW">
+                                                <div class="brick__background">
+                                                    <div class="menu-image menu-image--faded">
+                                                        <picture>
+                                                            <source srcset="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_women-5ee33c40cf.webp" type="image/webp"/>
+                                                            <img class="menu-image__pic" src="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_women-1f4fe516f4.png" alt="Megamenu fw23 women 1f4fe516f4"/>
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="brick__content">
+                                                    <div class="brick__note bmg-btn--inverted">FW23 New Arrivals</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <button class="menu__close" type="button">Close menu</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu__item menu__item--men js-toggle-expand-wrapper">
+                                <a class="menu__link js-disable-link-navigation-on-mobile js-toggle-expand-trigger" data-et="brands,click,/items/find/men/" data-navi-evt="header" href="/items/find/men/">
+                                    <span class="menu__label">MEN</span>
+                                </a>
+                                <div class="menu__dropdown js-toggle-expand-target">
+                                    <div class="menu__wrapper">
+                                        <div class="menu__section">
+                                            <a class="menu__heading" data-et="brands,click,/items/find/men/clothing/" data-navi-evt="header" href="/items/find/men/clothing/">CLOTHING</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/activewear/" data-navi-evt="header" href="/items/find/men/clothing/activewear/">Activewear</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/bottoms/" data-navi-evt="header" href="/items/find/men/clothing/bottoms/">Bottoms</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/outerwear/" data-navi-evt="header" href="/items/find/men/clothing/outerwear/">Outerwear</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/suits/" data-navi-evt="header" href="/items/find/men/clothing/suits/">Suits</a>
+                                                </div>
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/tops/sweaters/" data-navi-evt="header" href="/items/find/men/clothing/tops/sweaters/">Sweaters</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/swimwear/" data-navi-evt="header" href="/items/find/men/clothing/swimwear/">Swimwear</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/tops/" data-navi-evt="header" href="/items/find/men/clothing/tops/">Tops</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/underwear-lounge/" data-navi-evt="header" href="/items/find/men/clothing/underwear-lounge/">Underwear &amp;Lounge</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section">
+                                            <a class="menu__heading" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">FEATURED BRANDS</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/balenciaga/men/clothing/" data-navi-evt="header" href="/items/find/balenciaga/men/clothing/">BALENCIAGA</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/gucci/men/clothing/" data-navi-evt="header" href="/items/find/gucci/men/clothing/">GUCCI</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/chrome-hearts/men/clothing/" data-navi-evt="header" href="/items/find/chrome-hearts/men/clothing/">Chrome Hearts</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/louis-vuitton/men/clothing/" data-navi-evt="header" href="/items/find/louis-vuitton/men/clothing/">Louis Vuitton</a>
+                                                </div>
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/clothing/?brands=171-156" data-navi-evt="header" href="/items/find/men/clothing/?brands=171-156">Christian Dior</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/vlone/men/clothing/" data-navi-evt="header" href="/items/find/vlone/men/clothing/">VLONE</a>
+                                                    <a class="menu__sub-link menu__sub-link--view-all" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">View all</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__addition">
+                                            <a class="brick" data-navi-evt="header" href="/items/find/men/clothing/?seasons=23FW">
+                                                <div class="brick__background">
+                                                    <div class="menu-image menu-image--faded">
+                                                        <picture>
+                                                            <source srcset="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_men-b20c9b34be.webp" type="image/webp"/>
+                                                            <img class="menu-image__pic" src="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_men-4508d16a84.png" alt="Megamenu fw23 men 4508d16a84"/>
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="brick__content">
+                                                    <div class="brick__note bmg-btn--inverted">FW23 New Arrivals</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="menu__extra-addition">
+                                            <a class="brick" data-navi-evt="header" href="/items/find/men/clothing/?sale=on&amp;tags=445">
+                                                <div class="brick__background">
+                                                    <div class="menu-image menu-image--faded">
+                                                        <picture>
+                                                            <source srcset="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_mensale-bd13e3ca07.webp" type="image/webp"/>
+                                                            <img class="menu-image__pic" src="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_mensale-3b1904ac2e.png" alt="Megamenu fw23 mensale 3b1904ac2e"/>
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="brick__content">
+                                                    <div class="brick__note bmg-btn--inverted">Men Sale</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <button class="menu__close" type="button">Close menu</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu__item menu__item--bags js-toggle-expand-wrapper">
+                                <a class="menu__link js-disable-link-navigation-on-mobile js-toggle-expand-trigger" data-et="brands,click,/items/find/women/bags/" data-navi-evt="header" href="/items/find/women/bags/">
+                                    <span class="menu__label">BAGS</span>
+                                </a>
+                                <div class="menu__dropdown js-toggle-expand-target">
+                                    <div class="menu__wrapper">
+                                        <div class="menu__section menu__section--half">
+                                            <a class="menu__heading" data-et="brands,click,/items/find/women/bags/" data-navi-evt="header" href="/items/find/women/bags/">WOMEN</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/backpacks/" data-navi-evt="header" href="/items/find/women/bags/backpacks/">Backpacks</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/boston-duffles/" data-navi-evt="header" href="/items/find/women/bags/boston-duffles/">Boston &amp;Duffles</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/clutches/" data-navi-evt="header" href="/items/find/women/bags/clutches/">Clutches</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/handbags/" data-navi-evt="header" href="/items/find/women/bags/handbags/">Hanbags</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/hip-packs/" data-navi-evt="header" href="/items/find/women/bags/hip-packs/">Hip Packs</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/satchels/" data-navi-evt="header" href="/items/find/women/bags/satchels/">Satchels</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/shoppers/" data-navi-evt="header" href="/items/find/women/bags/shoppers/">Shoppers</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/shoulder-bags/" data-navi-evt="header" href="/items/find/women/bags/shoulder-bags/">Shoulder Bags</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/straw-bags/" data-navi-evt="header" href="/items/find/women/bags/straw-bags/">Straw Bags</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/bags/totes/" data-navi-evt="header" href="/items/find/women/bags/totes/">Totes</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section menu__section--half">
+                                            <a class="menu__heading" data-et="brands,click,/items/find/men/bags/" data-navi-evt="header" href="/items/find/men/bags/">MEN</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/bags/backpacks/" data-navi-evt="header" href="/items/find/men/bags/backpacks/">Backpacks</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/bags/belt-bags/" data-navi-evt="header" href="/items/find/men/bags/belt-bags/">Belt Bags</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/bags/boston-bags/" data-navi-evt="header" href="/items/find/men/bags/boston-bags/">Boston Bags</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/bags/business-briefcases/" data-navi-evt="header" href="/items/find/men/bags/business-briefcases/">Buisness &amp;Briefcases</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/bags/clutches/" data-navi-evt="header" href="/items/find/men/bags/clutches/">Clutches</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/bags/messenger-shoulder-bags/" data-navi-evt="header" href="/items/find/men/bags/messenger-shoulder-bags/">Messenger &amp;Shoulder Bags</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/bags/totes/" data-navi-evt="header" href="/items/find/men/bags/totes/">Totes</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section">
+                                            <a class="menu__heading" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">FEATURED BRANDS</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/chanel/women/bags/" data-navi-evt="header" href="/items/find/chanel/women/bags/">CHANEL</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/prada/women/bags/" data-navi-evt="header" href="/items/find/prada/women/bags/">PRADA</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/louis-vuitton/women/bags/" data-navi-evt="header" href="/items/find/louis-vuitton/women/bags/">Louis Vuitton</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/gucci/women/bags/" data-navi-evt="header" href="/items/find/gucci/women/bags/">GUCCI</a>
+                                                </div>
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/loewe/women/bags/" data-navi-evt="header" href="/items/find/loewe/women/bags/">LOEWE</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/valentino/women/bags/" data-navi-evt="header" href="/items/find/valentino/women/bags/">VALENTINO</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/celine/women/bags/" data-navi-evt="header" href="/items/find/celine/women/bags/">CELINE</a>
+                                                    <a class="menu__sub-link menu__sub-link--view-all" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">View all</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__addition">
+                                            <a class="brick" data-navi-evt="header" href="/items/find/women/bags/?seasons=23FW&amp;tags=445">
+                                                <div class="brick__background">
+                                                    <div class="menu-image menu-image--faded">
+                                                        <picture>
+                                                            <source srcset="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_bags-f83f062f2a.webp" type="image/webp"/>
+                                                            <img class="menu-image__pic" src="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_bags-4e201adecb.png" alt="Megamenu fw23 bags 4e201adecb"/>
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="brick__content">
+                                                    <div class="brick__note bmg-btn--inverted">FW23 New Arrivals</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <button class="menu__close" type="button">Close menu</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu__item menu__item--accessories js-toggle-expand-wrapper">
+                                <a class="menu__link js-disable-link-navigation-on-mobile js-toggle-expand-trigger" data-et="brands,click,/items/find/women/accessories/" data-navi-evt="header" href="/items/find/women/accessories/">
+                                    <span class="menu__label">ACCESSORIES</span>
+                                </a>
+                                <div class="menu__dropdown js-toggle-expand-target">
+                                    <div class="menu__wrapper">
+                                        <div class="menu__section menu__section--half">
+                                            <a class="menu__heading" data-et="brands,click,/items/find/women/accessories/" data-navi-evt="header" href="/items/find/women/accessories/">WOMEN</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/belts/" data-navi-evt="header" href="/items/find/women/accessories/belts/">Belts</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/collars/" data-navi-evt="header" href="/items/find/women/accessories/collars/">Collars</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/eyewear/" data-navi-evt="header" href="/items/find/women/accessories/eyewear/">Eyewear</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/gloves/" data-navi-evt="header" href="/items/find/women/accessories/gloves/">Gloves</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/hats-hair-accessories/" data-navi-evt="header" href="/items/find/women/accessories/hats-hair-accessories/">Hats &amp;Hair Accessories</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/jewelry/" data-navi-evt="header" href="/items/find/women/accessories/jewelry/">Jewelry</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/keychains-bag-charms/" data-navi-evt="header" href="/items/find/women/accessories/keychains-bag-charms/">Keychains &amp;Bag Charms</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/pouches-cosmetic-bags/" data-navi-evt="header" href="/items/find/women/accessories/pouches-cosmetic-bags/">Pouches &amp;Cosmetic Bags</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/scarves-shawls/" data-navi-evt="header" href="/items/find/women/accessories/scarves-shawls/">Scarves &amp;Shawls</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/tech-accessories/" data-navi-evt="header" href="/items/find/women/accessories/tech-accessories/">Tech Accessories</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/umbrellas-rain-goods/" data-navi-evt="header" href="/items/find/women/accessories/umbrellas-rain-goods/">Umbrellas &amp;Rain Goods</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/wallets-card-holders/" data-navi-evt="header" href="/items/find/women/accessories/wallets-card-holders/">Wallets &amp;Card Holders</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/accessories/watches/" data-navi-evt="header" href="/items/find/women/accessories/watches/">Watches</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section menu__section--half">
+                                            <a class="menu__heading" data-et="brands,click,/items/find/men/accessories/" data-navi-evt="header" href="/items/find/men/accessories/">MEN</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/belts/" data-navi-evt="header" href="/items/find/men/accessories/belts/">Belts</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/eyewear/" data-navi-evt="header" href="/items/find/men/accessories/eyewear/">Eyewear</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/gloves/" data-navi-evt="header" href="/items/find/men/accessories/gloves/">Gloves</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/scarves-shawls/handkerchief/" data-navi-evt="header" href="/items/find/men/accessories/scarves-shawls/handkerchief/">Handkerchief</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/hats/" data-navi-evt="header" href="/items/find/men/accessories/hats/">Hats</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/scarves/" data-navi-evt="header" href="/items/find/men/accessories/scarves/">Scarves</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/tech-accessories/" data-navi-evt="header" href="/items/find/men/accessories/tech-accessories/">Tech Accessories</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/ties/" data-navi-evt="header" href="/items/find/men/accessories/ties/">Ties</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/umbrellas-rain-goods/" data-navi-evt="header" href="/items/find/men/accessories/umbrellas-rain-goods/">Umbrellas &amp;Rain Goods</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/wallets-card-holders/" data-navi-evt="header" href="/items/find/men/accessories/wallets-card-holders/">Wallets &amp;Card Holders</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/accessories/watches-jewelry/" data-navi-evt="header" href="/items/find/men/accessories/watches-jewelry/">Watches &amp;Jewelry</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section">
+                                            <a class="menu__heading" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">FEATURED BRANDS</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/chanel/women/accessories/" data-navi-evt="header" href="/items/find/chanel/women/accessories/">CHANEL</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/hermes/women/accessories/" data-navi-evt="header" href="/items/find/hermes/women/accessories/">HERMES</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/christian-dior/women/accessories/" data-navi-evt="header" href="/items/find/christian-dior/women/accessories/">Christian Dior</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/celine/women/accessories/" data-navi-evt="header" href="/items/find/celine/women/accessories/">CELINE</a>
+                                                </div>
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/berluti/men/accessories/" data-navi-evt="header" href="/items/find/berluti/men/accessories/">Berluti</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/louis-vuitton/men/accessories/" data-navi-evt="header" href="/items/find/louis-vuitton/men/accessories/">Louis Vuitton</a>
+                                                    <a class="menu__sub-link menu__sub-link--view-all" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">View all</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__addition">
+                                            <a class="brick" data-navi-evt="header" href="/items/find/women/accessories/?tags=445-446">
+                                                <div class="brick__background">
+                                                    <div class="menu-image menu-image--faded">
+                                                        <picture>
+                                                            <source srcset="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_accessories-ad71903c2c.webp" type="image/webp"/>
+                                                            <img class="menu-image__pic" src="https://static.buyma.us/assets/images/ui/photo/megamenu_fw23_accessories-b631521afb.png" alt="Megamenu fw23 accessories b631521afb"/>
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="brick__content">
+                                                    <div class="brick__note bmg-btn--inverted">Ready to Ship</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <button class="menu__close" type="button">Close menu</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu__item menu__item--shoes js-toggle-expand-wrapper">
+                                <a class="menu__link js-disable-link-navigation-on-mobile js-toggle-expand-trigger" data-et="brands,click,/items/find/women/shoes/" data-navi-evt="header" href="/items/find/women/shoes/">
+                                    <span class="menu__label">SHOES</span>
+                                </a>
+                                <div class="menu__dropdown js-toggle-expand-target">
+                                    <div class="menu__wrapper">
+                                        <div class="menu__section menu__section--half">
+                                            <a class="menu__heading" data-et="brands,click,/items/find/women/shoes/" data-navi-evt="header" href="/items/find/women/shoes/">WOMEN</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/shoes/boots/" data-navi-evt="header" href="/items/find/women/shoes/boots/">Boots</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/shoes/flats/" data-navi-evt="header" href="/items/find/women/shoes/flats/">Flats</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/shoes/pumps-mules/" data-navi-evt="header" href="/items/find/women/shoes/pumps-mules/">Pumps &amp;Mules</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/shoes/sandals/" data-navi-evt="header" href="/items/find/women/shoes/sandals/">Sandals</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/women/shoes/sneakers/" data-navi-evt="header" href="/items/find/women/shoes/sneakers/">Sneakers</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section menu__section--half">
+                                            <a class="menu__heading" data-et="brands,click,/items/find/men/shoes/" data-navi-evt="header" href="/items/find/men/shoes/">MEN</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/shoes/boots/" data-navi-evt="header" href="/items/find/men/shoes/boots/">Boots</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/shoes/loafers-slip-ons/" data-navi-evt="header" href="/items/find/men/shoes/loafers-slip-ons/">Loafers &amp;Slip-Ons</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/shoes/oxfords/" data-navi-evt="header" href="/items/find/men/shoes/oxfords/">Oxfords</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/shoes/sandals/" data-navi-evt="header" href="/items/find/men/shoes/sandals/">Sandals</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/men/shoes/sneakers/" data-navi-evt="header" href="/items/find/men/shoes/sneakers/">Sneakers</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__section">
+                                            <a class="menu__heading" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">FEATURED BRANDS</a>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/christian-louboutin/women/shoes/" data-navi-evt="header" href="/items/find/christian-louboutin/women/shoes/">Christian Louboutin</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/jimmy-choo/women/shoes/" data-navi-evt="header" href="/items/find/jimmy-choo/women/shoes/">Jimmy Choo</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/chanel/women/shoes/" data-navi-evt="header" href="/items/find/chanel/women/shoes/">CHANEL</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/louis-vuitton/women/shoes/" data-navi-evt="header" href="/items/find/louis-vuitton/women/shoes/">Louis Vuitton</a>
+                                                </div>
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/christian-dior/women/shoes/" data-navi-evt="header" href="/items/find/christian-dior/women/shoes/">Christian Dior</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/items/find/hermes/women/shoes/" data-navi-evt="header" href="/items/find/hermes/women/shoes/">HERMES</a>
+                                                    <a class="menu__sub-link menu__sub-link--view-all" data-et="brands,click,/gnav/brands/" data-navi-evt="header" href="/brands/">View all</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="menu__addition">
+                                            <a class="brick" data-navi-evt="header" href="/items/find/women/shoes/?seasons=23FW&amp;tags=445">
+                                                <div class="brick__background">
+                                                    <div class="menu-image menu-image--faded">
+                                                        <picture>
+                                                            <source srcset="https://static.buyma.us/assets/images/ui/photo/megamenu-shoes-fw22-8ae7171723.webp" type="image/webp"/>
+                                                            <img class="menu-image__pic" src="https://static.buyma.us/assets/images/ui/photo/megamenu-shoes-fw22-4087efc544.png" alt="Megamenu shoes fw22 4087efc544"/>
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="brick__content">
+                                                    <div class="brick__note bmg-btn--inverted">Fall Shoes</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <button class="menu__close" type="button">Close menu</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu__item js-toggle-expand-wrapper">
+                                <a class="menu__link js-disable-link-navigation-on-mobile js-toggle-expand-trigger" data-navi-evt="header" href="/items/find/women/shoes/">
+                                    <span class="menu__label">STYLE MAP</span>
+                                </a>
+                                <div class="menu__dropdown menu__small-dropdown js-toggle-expand-target">
+                                    <div class="menu__wrapper">
+                                        <div class="menu__section menu__section--half">
+                                            <div class="menu__heading">SHOP BY CITY</div>
+                                            <div class="menu__sub-menu">
+                                                <div class="menu__column">
+                                                    <a class="menu__sub-link" data-et="brands,click,/contents/japanese-brands/" data-navi-evt="header" href="/contents/japanese-brands/">TOKYO</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/contents/korean-brand/" data-navi-evt="header" href="/contents/korean-brand/">SEOUL</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/contents/style-map/paris-france/" data-navi-evt="header" href="/contents/style-map/paris-france/">PARIS</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/contents/style-map/milan-italy/" data-navi-evt="header" href="/contents/style-map/milan-italy/">MILAN</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/contents/style-map/madrid-spain/" data-navi-evt="header" href="/contents/style-map/madrid-spain/">MADRID</a>
+                                                    <a class="menu__sub-link" data-et="brands,click,/contents/style-map/london-uk/" data-navi-evt="header" href="/contents/style-map/london-uk/">LONDON                       </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu__search">
+                                <div class="header__search header__search--desktop">
+                                    <div class="header__form js-search-keyword-navigation">
+                                        <div class="search js-search-keyword-navigation-sp">
+                                            <input class="js-search-keyword-navigation-input search__input" placeholder="Search is disable for meantime" type="text" value=""/>
+                                            <button class="js-search-keyword-navigation-button search__submit" type="submit">Search</button>
+                                            <div class="header__search--suggest js-suggest"></div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="menu__secondary">
+                                <div class="menu__alternate-link">
+                                    <a class="menu__shipping js-top-coupon-picker" data-coupon-code="BMNM1000" data-et="brands,click,/nav/freeshipping/more" data-navi-evt="header">FREE SHIPPING + $10 USD OFF COUPON</a>
+                                </div>
+                                <a class="menu__alternate-link" data-et="brands,click,/nav/abountbuyma" data-navi-evt="header" href="/aboutbuyma/">About Service</a>
+                                <a class="menu__alternate-link" data-et="brands,click,/nav/faq" data-navi-evt="header" href="https://buyma-us.zendesk.com/" target="_blank">FAQ</a>
+                                <a class="menu__alternate-link" data-navi-evt="header" href="https://buyma-us.zendesk.com/hc/en-us/sections/115001534807-Shipping" target="_blank">Shipping</a>
+                                <a class="menu__alternate-link menu__alternate-link--login" data-navi-evt="header" href="/login"></a>
+                                <a data-navi-evt="header" data-et="secondary_menu,click,login" class="menu__alternate-link" href="">Logged in as Admin</a>
+                                <a data-navi-evt="header" data-et="secondary_menu,click,register" class="menu__alternate-link" href="/index.html">Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--Product Slider-->
+        <div class="bmg-l-wrapper js-bmg-l-wrapper">
+            <div class="js-products">
+                <div class="bmg-l-layout--full">
+                    <div class="item-content">
+                        <div class="item-section--l">
+                            <div class="item-images-wrap" id="item-images-wrap">
+                                <div class="js-item-images-slider item-images-slide js-swipephoto">
+                                    <figure class="item-images-slide__item js-item-image-list" data-list-index="0">
+                                        <a class="item-image" data-size="0x0">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts" data-original-src="images/lv1.jpg" data-pin-no-hover="true" src="images/lv1.jpg"/>
+                                        </a>
+                                    </figure>
+                                    <figure class="item-images-slide__item js-item-image-list bmg-u-dn" data-list-index="1">
+                                        <a class="item-image" data-size="0x0">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts 2" data-original-src="images/lv2.jpg" data-pin-no-hover="true" src="images/lv2.jpg"/>
+                                        </a>
+                                    </figure>
+                                    <figure class="item-images-slide__item js-item-image-list bmg-u-dn" data-list-index="2">
+                                        <a class="item-image" data-size="0x0">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts 3" data-original-src="images/lv3.jpg" data-pin-no-hover="true" src="images/lv3.jpg"/>
+                                        </a>
+                                    </figure>
+                                    <figure class="item-images-slide__item js-item-image-list bmg-u-dn" data-list-index="3">
+                                        <a class="item-image" data-size="0x0">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts 4" class="lazy" data-original-src="images/lv4.jpg" data-pin-no-hover="true" data-src="images/lv4.jpg" src="images/lv4.jpg"/>
+                                        </a>
+                                    </figure>
+                                    <figure class="item-images-slide__item js-item-image-list bmg-u-dn" data-list-index="4">
+                                        <a class="item-image" data-size="0x0">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts 5" class="lazy" data-original-src="images/lv5.jpg" data-pin-no-hover="true" data-src="images/lv5.jpg" src="images/lv5.jpg"/>
+                                        </a>
+                                    </figure>
+                                </div>
+                                <ul class="js-item-images-slider-pager item-images-slide-pager">
+                                    <li class="item-images-slide-pager__item">
+                                        <a class="js-thumb-image" data-et="item_detail,click,image/1" data-slide-index="0" href="javascript:void(0);">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts" src="images/lv1.jpg"/>
+                                        </a>
+                                    </li>
+                                    <li class="item-images-slide-pager__item">
+                                        <a class="js-thumb-image" data-et="item_detail,click,image/2" data-slide-index="1" href="javascript:void(0);">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts 2" src="images/lv2.jpg"/>
+                                        </a>
+                                    </li>
+                                    <li class="item-images-slide-pager__item">
+                                        <a class="js-thumb-image" data-et="item_detail,click,image/3" data-slide-index="2" href="javascript:void(0);">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts 3" src="images/lv3.jpg"/>
+                                        </a>
+                                    </li>
+                                    <li class="item-images-slide-pager__item">
+                                        <a class="js-thumb-image" data-et="item_detail,click,image/4" data-slide-index="3" href="javascript:void(0);">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts 4" src="images/lv4.jpg"/>
+                                        </a>
+                                    </li>
+                                    <li class="item-images-slide-pager__item">
+                                        <a class="js-thumb-image" data-et="item_detail,click,image/5" data-slide-index="4" href="javascript:void(0);">
+                                            <img alt="Louis Vuitton Shirts Luxury Shirts 5" src="images/lv5.jpg"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="item-section--r">
+                            <div class="item-detail">
+                                <div class="item-detail__section">
+                                    <div class="item-detail__heading">
+                                        <div class="item-detail__customer-protection">
+                                            <a data-et="item_detail,click,customer_protection" class="protection__wrap" target="_blank" href="https://buyma-us.zendesk.com/hc/en-us/articles/115010931787-Authenticity">
+                                                <div class="protection__icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-fingerprint" viewBox="0 0 16 16">
+                                                        <path d="M8.06 6.5a.5.5 0 0 1 .5.5v.776a11.5 11.5 0 0 1-.552 3.519l-1.331 4.14a.5.5 0 0 1-.952-.305l1.33-4.141a10.5 10.5 0 0 0 .504-3.213V7a.5.5 0 0 1 .5-.5Z"/>
+                                                        <path d="M6.06 7a2 2 0 1 1 4 0 .5.5 0 1 1-1 0 1 1 0 1 0-2 0v.332c0 .409-.022.816-.066 1.221A.5.5 0 0 1 6 8.447c.04-.37.06-.742.06-1.115zm3.509 1a.5.5 0 0 1 .487.513 11.5 11.5 0 0 1-.587 3.339l-1.266 3.8a.5.5 0 0 1-.949-.317l1.267-3.8a10.5 10.5 0 0 0 .535-3.048A.5.5 0 0 1 9.569 8Zm-3.356 2.115a.5.5 0 0 1 .33.626L5.24 14.939a.5.5 0 1 1-.955-.296l1.303-4.199a.5.5 0 0 1 .625-.329Z"/>
+                                                        <path d="M4.759 5.833A3.501 3.501 0 0 1 11.559 7a.5.5 0 0 1-1 0 2.5 2.5 0 0 0-4.857-.833.5.5 0 1 1-.943-.334Zm.3 1.67a.5.5 0 0 1 .449.546 10.72 10.72 0 0 1-.4 2.031l-1.222 4.072a.5.5 0 1 1-.958-.287L4.15 9.793a9.72 9.72 0 0 0 .363-1.842.5.5 0 0 1 .546-.449Zm6 .647a.5.5 0 0 1 .5.5c0 1.28-.213 2.552-.632 3.762l-1.09 3.145a.5.5 0 0 1-.944-.327l1.089-3.145c.382-1.105.578-2.266.578-3.435a.5.5 0 0 1 .5-.5Z"/>
+                                                        <path d="M3.902 4.222a4.996 4.996 0 0 1 5.202-2.113.5.5 0 0 1-.208.979 3.996 3.996 0 0 0-4.163 1.69.5.5 0 0 1-.831-.556Zm6.72-.955a.5.5 0 0 1 .705-.052A4.99 4.99 0 0 1 13.059 7v1.5a.5.5 0 1 1-1 0V7a3.99 3.99 0 0 0-1.386-3.028.5.5 0 0 1-.051-.705ZM3.68 5.842a.5.5 0 0 1 .422.568c-.029.192-.044.39-.044.59 0 .71-.1 1.417-.298 2.1l-1.14 3.923a.5.5 0 1 1-.96-.279L2.8 8.821A6.531 6.531 0 0 0 3.058 7c0-.25.019-.496.054-.736a.5.5 0 0 1 .568-.422Zm8.882 3.66a.5.5 0 0 1 .456.54c-.084 1-.298 1.986-.64 2.934l-.744 2.068a.5.5 0 0 1-.941-.338l.745-2.07a10.51 10.51 0 0 0 .584-2.678.5.5 0 0 1 .54-.456Z"/>
+                                                        <path d="M4.81 1.37A6.5 6.5 0 0 1 14.56 7a.5.5 0 1 1-1 0 5.5 5.5 0 0 0-8.25-4.765.5.5 0 0 1-.5-.865Zm-.89 1.257a.5.5 0 0 1 .04.706A5.478 5.478 0 0 0 2.56 7a.5.5 0 0 1-1 0c0-1.664.626-3.184 1.655-4.333a.5.5 0 0 1 .706-.04ZM1.915 8.02a.5.5 0 0 1 .346.616l-.779 2.767a.5.5 0 1 1-.962-.27l.778-2.767a.5.5 0 0 1 .617-.346Zm12.15.481a.5.5 0 0 1 .49.51c-.03 1.499-.161 3.025-.727 4.533l-.07.187a.5.5 0 0 1-.936-.351l.07-.187c.506-1.35.634-2.74.663-4.202a.5.5 0 0 1 .51-.49"/>
+                                                      </svg>
+                                                </div>
+                                                <div class="protection__text">Only Authentic &amp;Brand New</div>
+                                            </a>
+                                        </div>
+                                        <div class="ttl-wrap">
+                                            <div class="item-tag-label">Pre-Order</div>
+                                            <div class="item-tag-label">Shipping Included</div>
+                                            <h1 class="item-subttl--brand">
+                                                <a data-et="item_detail,click,brand/brands/louis-vuitton/" href="">Louis Vuitton</a>
+                                                &nbsp;|&nbsp;Luxury Shirts
+                                            </h1>
+                                        </div>
+                                        <div class="item-detail__price">$2,531 USD</div>
+                                        <div data-pp-amount="2530.61" data-pp-buyercountry="US" data-pp-message="" data-pp-placement="product" data-pp-style-logo-type="inline"></div>
+                                    </div>
+                                    <div class="item-detail__color-size item-detail__color-size-size-chart">
+                                        <div class="item-detail__color-size item-detail__color-size-select-wrapper">
+                                            <a class="item-detail__color-size-select js-color-size-trigger item-detail__color-size-select--pc-small" data-et="item_detail,click,color_size_select_box/open_or_close">
+                                                <span class="item-detail__color-size-text">Choose color &amp;size</span>
+                                            </a>
+                                            <ul class="item-detail__color-size-list js-color-size-list item-detail__color-size-select--pc-small" data-initial-params="null">
+                                                <li class="item-detail__color-size-item">
+                                                    <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x XS (needs to be confirmed) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;847c4000-e116-4e3a-bba1-0c389e3e6112&quot;}" href="javascript:void(0);">
+                                                        <span class="color-label blue color-label__color-size-item"></span>
+                                                        Bleu Tempete (needs to be confirmed) x XS (needs to be confirmed) 
+                                                    </a>
+                                                </li>
+                                                <li class="item-detail__color-size-item">
+                                                    <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x S (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;c8ec71df-7be1-455f-a8e9-8d8feeb98a6a&quot;}" href="javascript:void(0);">
+                                                        <span class="color-label blue color-label__color-size-item"></span>
+                                                        Bleu Tempete (needs to be confirmed) x S (confirmation required) 
+                                                    </a>
+                                                </li>
+                                                <li class="item-detail__color-size-item">
+                                                    <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x M (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;50abf7c5-75fd-4c97-b6ef-34e39a9da315&quot;}" href="javascript:void(0);">
+                                                        <span class="color-label blue color-label__color-size-item"></span>
+                                                        Bleu Tempete (needs to be confirmed) x M (confirmation required) 
+                                                    </a>
+                                                </li>
+                                                <li class="item-detail__color-size-item">
+                                                    <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x L (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;8fdb0307-4d62-4625-803c-f073812f480f&quot;}" href="javascript:void(0);">
+                                                        <span class="color-label blue color-label__color-size-item"></span>
+                                                        Bleu Tempete (needs to be confirmed) x L (confirmation required) 
+                                                    </a>
+                                                </li>
+                                                <li class="item-detail__color-size-item">
+                                                    <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x XL (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;486ee287-816a-4b78-a53d-f76e9d396451&quot;}" href="javascript:void(0);">
+                                                        <span class="color-label blue color-label__color-size-item"></span>
+                                                        Bleu Tempete (needs to be confirmed) x XL (confirmation required) 
+                                                    </a>
+                                                </li>
+                                                <li class="item-detail__color-size-item">
+                                                    <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x XXL (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;ee1b04d2-4830-4985-b54f-e0b924642d2e&quot;}" href="javascript:void(0);">
+                                                        <span class="color-label blue color-label__color-size-item"></span>
+                                                        Bleu Tempete (needs to be confirmed) x XXL (confirmation required) 
+                                                    </a>
+                                                </li>
+                                                <li class="item-detail__color-size-item">
+                                                    <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x XXXL (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;954d5148-86f6-4709-ae39-185c70752256&quot;}" href="javascript:void(0);">
+                                                        <span class="color-label blue color-label__color-size-item"></span>
+                                                        Bleu Tempete (needs to be confirmed) x XXXL (confirmation required) 
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $(".js-color-size-trigger").on("click", function () {
+                                                $(".js-color-size-list").toggleClass("visible");
+                                            });
+                                    
+                                            $(".js-color-size-item-trigger").on("click", function () {
+                                                var selectedText = $(this).text().trim();
+                                                $(".item-detail__color-size-text").text(selectedText);
+                                                // You may want to close the dropdown after selection
+                                                $(".js-color-size-list").removeClass("visible");
+                                            });
+                                        });
+                                    </script>
+                                    <div class="item-detail__btnwrap">
+                                        <div class="add-btn">
+                                            <a class="bmg-btn--cart js-add-to-bag item-detail__btn--buyable" data-color-size-specified="true" data-et="item_detail,click,add_to_bag/buyable" data-is-shipping-limited="false" data-item-id="8eb8d79f-2623-4dbd-b1ad-64051fa311cc" href="checkout.html">Checkout</a>
+                                        </div>
+                                    </div>
+                                    <input id="inquiry-picker-already" type="hidden"/>
+                                    <div class="item-detail__shopper-head item-detail__seller-rating">
+                                        <div class="item-detail__shopper-grp1">
+                                            <div class="seller-link">
+                                                SELLER: <a data-et="item_detail,click,ps_name//ps/Cindy/" rel="nofollow" href="">Cindy</a>
+                                            </div>
+                                            <div class="seller-rate--wrap">
+                                                <div class="seller-rate--box">
+                                                    <span class="seller-rate">
+                                                        <span class="rate-star star-none">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                        <span class="rate-star star-full">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                    </span>
+                                                    <span class="seller-rate">
+                                                        <span class="rate-star star-none">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                        <span class="rate-star star-full">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                    </span>
+                                                    <span class="seller-rate">
+                                                        <span class="rate-star star-none">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                        <span class="rate-star star-full">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                    </span>
+                                                    <span class="seller-rate">
+                                                        <span class="rate-star star-none">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                        <span class="rate-star star-full">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                    </span>
+                                                    <span class="seller-rate">
+                                                        <span class="rate-star star-none">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                        </span>
+                                                        <span class="rate-star star-half">
+                                                            <i class="bmg-c-icon--star-half"></i>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="seller-count">4.5</div>
+                                                <div class="seller-sales">(312 sales)</div>
+                                            </div>
+                                        </div>
+                                        <div class="seller-performance--wrap">
+                                            <div class="seller-performance--box">
+                                                <div class="performance-title">ABOUT THIS SELLER</div>
+                                                <div class="seller-performance--values">
+                                                    <div class="shipped_day_ave">
+                                                        <div class="icons">
+                                                            <img alt="Ship within" src="icon/delivery.svg"/>
+                                                        </div>
+                                                        Ship within: Avr. 6.5 days
+                                                    </div>
+                                                    <div class="shipped_rate">
+                                                        <div class="icons">
+                                                            <img alt="Success Rate" src="icon/bag.svg"/>
+                                                        </div>
+                                                        Success Rate: Avr. 81.82 %
+                                                    </div>
+                                                </div>
+                                                <div class="seller-performance--note">*actual delivery period may vary depending on where the customer is located.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-detail__notewrap">
+                                        <div class="note-content">
+                                            <a data-et="item_detail,click,good_price" target="_blank" href="">
+                                                <div class="note-content_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
+                                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
+                                                      </svg>
+                                                </div>
+                                                <div class="note-content_text">Good Price by Best Seller</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item-detail__product-information">
+                                        <div class="accordion-label js-accordion-target">Description</div>
+                                        <div class="accordion-content">
+                                            <p>DAMIER Shirts from Louis Vuitton, Luxury, 2024 SS</p>
+                                        </div>
+                                        <hr/>
+                                        <div class="accordion-label js-accordion-target">Detail</div>
+                                        <div class="accordion-content">
+                                            Item code: 1AFAUQ/1AFAUR, 1AFAUL/1AFAUO/1AFAUP, 1AFAUL/1AFAUM<br/>
+                                            Please &nbsp;<input id="inquiry-picker-already" type="hidden"/>
+                                            <a class="js-product-inquiry-picker" data-et="item_detail,click,/inqurires" data-recipient-id="0b0aae0a-7253-4411-a049-f479f3417fc2" data-source-id="8eb8d79f-2623-4dbd-b1ad-64051fa311cc">contact the seller</a>
+                                            &nbsp;for details regarding the size and materials of the product.
+                                        </div>
+                                        <hr/>
+                                        <div class="accordion-label js-accordion-target">Shipping & Returns</div>
+                                        <div class="accordion-content">
+                                            Shipping is included in the cost of the product. The shipping period may vary depending on where the product is originating from. BUYMA allows customers to communicate directly with their personal shoppers to negotiate delivery options. Please note that customs import/export duties, VAT, or other taxes may apply upon delivery, which are the responsibility of the customer.<br/>
+                                            <br/>
+                                            Returns - All sales of goods and other items on BUYMA cannot be returned to the seller for a refund, or exchanged for another item, except in &nbsp;<a href="https://buyma-us.zendesk.com/hc/en-us/articles/211626537-Are-refunds-and-exchanges-allowed-">limited case</a>
+                                            .
+                                        </div>
+                                        <hr/>
+                                        <div class="accordion-label js-accordion-target">Authenticity</div>
+                                        <div class="accordion-content">
+                                            Buyma is committed to ensuring the authenticity of every item sold on our website. Buyma’s zero-tolerance policy and money-back guarantee allow our customers to shop with confidence. Please visit our &nbsp;<a href="/authenticity/">Authenticity Policy</a>
+                                            &nbsp;for more details.
+                                        </div>
+                                        <hr/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="about_buyma">
+                            <h2 class="about-ttl bmg-title--section">HOW TO BUY</h2>
+                            <ul class="about-list">
+                                <li>
+                                    <dl>
+                                        <dt class="icon icon--support">
+                                            1. YOU : CONTACT SELLER<br/>AND PLACE YOUR ORDER
+                                        </dt>
+                                        <dd>When you’ve found your perfect item, contact the personal shopper directly to ask any questions, then place your order!</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt class="icon icon--ps">
+                                            2. PERSONAL SHOPPER: BUYS<br/>AND SHIPS DIRECTLY TO YOU!
+                                        </dt>
+                                        <dd>Your personal shopper will go out and purchase your item and ship it directly to your doorstep with free shipping! </dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                            <div class="links">
+                                <a data-et="item_detail,click,howtobuyma" href="">MORE ABOUT CINDY ECOMMERCE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-content--bottom">
+                        <div class="item-section--l">
+                            <section class="item-detail__section">
+                                <h2 class="item-subttl">
+                                    Shipping<span class="bmg-b-text-size--small">&nbsp;- Shipping anywhere in the world!</span>
+                                </h2>
+                                <div class="item-detail__body">
+                                    <div class="item-detail__bodytxt">
+                                        <b>This item can be shipped to your area.</b>
+                                        <br/>
+                                        <span class="desc--ttl">Purchased At : France </span>
+                                        <span class="desc--body">
+                                            <img width="18" height="18" src="images/france.png" alt="Fra 57df0a62de"/>
+                                        </span>
+                                        <br/>
+                                        <span class="desc--ttl">Shipping From : France </span>
+                                        <span class="desc--body">
+                                            <img width="18" height="18" src="images/france.png" alt="Fra 57df0a62de"/>
+                                        </span>
+                                    </div>
+                                    <table class="item-shipping-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Shipping</th>
+                                                <th>Shipping Period</th>
+                                                <th>Shipping Cost</th>
+                                                <th>Tracking number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Standard Shipping</td>
+                                                <td>10 - 21 Day</td>
+                                                <td>est.$0.00 USD</td>
+                                                <td>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16">
+                                                        <path d="M6.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306Z"/>
+                                                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+                                                      </svg>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            <section class="item-detail__section">
+                                <h2 class="item-subttl">Size Details</h2>
+                                <div class="item-detail__body">
+                                    <div class="table-wrapper">
+                                        <div class="table-scroll">
+                                            <table class="item-color-size-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Size Name</th>
+                                                        <th>
+                                                            <span class="color-label blue"></span>
+                                                            <div class="color-label-text">Bleu Tempete (needs to be confirmed)</div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>XS (needs to be confirmed)</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>S (confirmation required)</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>M (confirmation required)</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>L (confirmation required)</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>XL (confirmation required)</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>XXL (confirmation required)</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>XXXL (confirmation required)</td>
+                                                        <td>○</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p class="item-size-detail__note">※◎ is in-stock and ready to ship within a few days. ○ is available to pre-order, please ask in-stock availability with the seller.</p>
+                                    <div class="item-size-detail__note">※ Please use this size for reference. Please contact the seller if you have any questions before purchasing the item.</div>
+                                    <div class="sec-dtl__cont__action_links">
+                                        <input id="inquiry-picker-already" type="hidden"/>
+                                        <div class="shopper__msg-btn">
+                                            <a class="js-product-inquiry-picker" data-et="item_detail,click,size_details/question" data-recipient-id="0b0aae0a-7253-4411-a049-f479f3417fc2" data-source-id="8eb8d79f-2623-4dbd-b1ad-64051fa311cc">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                                  </svg>
+                                                Connect With Seller
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="item-detail__section--btn">
+                                <div class="item-detail__color-size item-detail__color-size-size-chart">
+                                    <div class="item-detail__color-size item-detail__color-size-select-wrapper">
+                                        <a class="item-detail__color-size-select js-color-size-trigger" data-et="item_detail,click,color_size_select_box/open_or_close">
+                                            <span class="item-detail__color-size-text">Choose color &amp;size</span>
+                                        </a>
+                                        <ul class="item-detail__color-size-list js-color-size-list" data-initial-params="null">
+                                            <li class="item-detail__color-size-item">
+                                                <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x XS (needs to be confirmed) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;847c4000-e116-4e3a-bba1-0c389e3e6112&quot;}" href="javascript:void(0);">
+                                                    <span class="color-label blue color-label__color-size-item"></span>
+                                                    Bleu Tempete (needs to be confirmed) x XS (needs to be confirmed) 
+                                                </a>
+                                            </li>
+                                            <li class="item-detail__color-size-item">
+                                                <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x S (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;c8ec71df-7be1-455f-a8e9-8d8feeb98a6a&quot;}" href="javascript:void(0);">
+                                                    <span class="color-label blue color-label__color-size-item"></span>
+                                                    Bleu Tempete (needs to be confirmed) x S (confirmation required) 
+                                                </a>
+                                            </li>
+                                            <li class="item-detail__color-size-item">
+                                                <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x M (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;50abf7c5-75fd-4c97-b6ef-34e39a9da315&quot;}" href="javascript:void(0);">
+                                                    <span class="color-label blue color-label__color-size-item"></span>
+                                                    Bleu Tempete (needs to be confirmed) x M (confirmation required) 
+                                                </a>
+                                            </li>
+                                            <li class="item-detail__color-size-item">
+                                                <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x L (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;8fdb0307-4d62-4625-803c-f073812f480f&quot;}" href="javascript:void(0);">
+                                                    <span class="color-label blue color-label__color-size-item"></span>
+                                                    Bleu Tempete (needs to be confirmed) x L (confirmation required) 
+                                                </a>
+                                            </li>
+                                            <li class="item-detail__color-size-item">
+                                                <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x XL (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;486ee287-816a-4b78-a53d-f76e9d396451&quot;}" href="javascript:void(0);">
+                                                    <span class="color-label blue color-label__color-size-item"></span>
+                                                    Bleu Tempete (needs to be confirmed) x XL (confirmation required) 
+                                                </a>
+                                            </li>
+                                            <li class="item-detail__color-size-item">
+                                                <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x XXL (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;ee1b04d2-4830-4985-b54f-e0b924642d2e&quot;}" href="javascript:void(0);">
+                                                    <span class="color-label blue color-label__color-size-item"></span>
+                                                    Bleu Tempete (needs to be confirmed) x XXL (confirmation required) 
+                                                </a>
+                                            </li>
+                                            <li class="item-detail__color-size-item">
+                                                <a class="js-color-size-item-trigger" data-et="item_detail,click,color_size_select_box/select/Bleu Tempete (needs to be confirmed) x XXXL (confirmation required) " data-variation-params="{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;variation_id&quot;:&quot;954d5148-86f6-4709-ae39-185c70752256&quot;}" href="javascript:void(0);">
+                                                    <span class="color-label blue color-label__color-size-item"></span>
+                                                    Bleu Tempete (needs to be confirmed) x XXXL (confirmation required) 
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="item-detail__btnwrap">
+                                    <div class="add-btn">
+                                        <a class="bmg-btn--cart js-add-to-bag item-detail__btn--buyable" data-color-size-specified="true" data-et="item_detail,click,add_to_bag_2/buyable" data-is-shipping-limited="false" data-item-id="8eb8d79f-2623-4dbd-b1ad-64051fa311cc" href="checkout.html">Checkout</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="item-section--r">
+                            <section class="item-detail__section">
+                                <h2 class="item-subttl">Seller</h2>
+                                <div class="item-detail__body">
+                                    <div class="item-detail__section">
+                                        <div class="item-detail__shopper-head">
+                                            <div class="item-detail__shopper-grp1">
+                                                <div class="seller-photo">
+                                                    <img alt="Cindy&#39;s icon" src="https://buyma-global-prod-img.s3.amazonaws.com/img/upload/user_image/0b0aae0a-7253-4411-a049-f479f3417fc2/d97c808b-0de9-4197-8d19-d3ac4789faa3.jpg"/>
+                                                </div>
+                                                <div class="seller-link">
+                                                    <div class="verified-status">
+                                                        <div class="verified-status-wrap">Verified</div>
+                                                    </div>
+                                                    <a data-et="item_detail,click,ps_name//ps/Cindy/" rel="nofollow" href="/ps/Cindy/">Cindy</a>
+                                                </div>
+                                                <div class="seller-rate--wrap">
+                                                    <div class="seller-rate--box">
+                                                        <span class="seller-rate">
+                                                            <span class="rate-star star-none">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                            <span class="rate-star star-full">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                        </span>
+                                                        <span class="seller-rate">
+                                                            <span class="rate-star star-none">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                            <span class="rate-star star-full">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                        </span>
+                                                        <span class="seller-rate">
+                                                            <span class="rate-star star-none">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                            <span class="rate-star star-full">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                        </span>
+                                                        <span class="seller-rate">
+                                                            <span class="rate-star star-none">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                            <span class="rate-star star-full">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                        </span>
+                                                        <span class="seller-rate">
+                                                            <span class="rate-star star-none">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                            </span>
+                                                            <span class="rate-star star-half">
+                                                                <i class="bmg-c-icon--star-half"></i>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="seller-count">4.5</div>
+                                                    <div class="seller-sales">(312 sales)</div>
+                                                </div>
+                                            </div>
+                                            <div class="seller-performance--wrap">
+                                                <div class="seller-performance--box">
+                                                    <div class="performance-title">ABOUT THIS SELLER</div>
+                                                    <div class="seller-performance--values">
+                                                        <div class="shipped_day_ave">
+                                                            <div class="icons">
+                                                                <img alt="Ship within" src="icon/delivery.svg"/>
+                                                            </div>
+                                                            Ship within: Avr. 6.5 days
+                                                        </div>
+                                                        <div class="shipped_rate">
+                                                            <div class="icons">
+                                                                <img alt="Success Rate" src="icon/bag.svg"/>
+                                                            </div>
+                                                            Success Rate: Avr. 81.82 %
+                                                        </div>
+                                                    </div>
+                                                    <div class="seller-performance--note">*actual delivery period may vary depending on where the customer is located.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="item-subttl--h3">Profile</h3>
+                                        <div class="item-detail__bodytxt bmg-u-mb15">
+                                            Hello! Thank you for visiting my shop &quot;Cindy!&quot;<br/>
+                                            <br/>
+                                            We handle item limited to Japan and sold out.<br/>
+                                            We will also look for item  that are not on the list.<br/>
+                                            <br/>
+                                            The most popular brands are Louis Vuitton, BOTTEGA VENETA, CHANEL and Tod &#39;s.<br/>
+                                            Japanese jewelry brand 4 ℃ is recommended at a reasonable price.<br/>
+                                            <br/>
+                                            If you have any questions, please send me a message by clicking the &#39;Contact the seller &#39;button.<br/>
+                                            I &#39;d love to hear from you. <br/>
+                                            <br/>
+                                            Enjoy shoppinig with Cindy<br/>
+                                        </div>
+                                        <h3 class="item-subttl--h3">My Policies and Promotions</h3>
+                                        <div class="item-detail__bodytxt js-detail-lead-first">
+                                            Before placing your order, please note that in compliance with BUYMA’s transaction policies, we do not accept returns/exchanges, nor can we be held responsible for any customs charges. For more details, please visit BUYMA &#39;s FAQ from below:<br/>
+                                            https://buyma-us.zendesk.com/hc/en-us<br/>
+                                        </div>
+                                        <input id="inquiry-picker-already" type="hidden"/>
+                                        <div class="shopper__msg-btn">
+                                            <a class="js-product-inquiry-picker" data-et="item_detail,click,seller/question2" data-recipient-id="0b0aae0a-7253-4411-a049-f479f3417fc2" data-source-id="8eb8d79f-2623-4dbd-b1ad-64051fa311cc">
+                                                <i class="bmg-c-icon--ask"></i>
+                                                Connect With Seller
+                                            </a>
+                                        </div>
+                                        <h3 class="item-subttl--h3">Reviews for this seller</h3>
+                                        <div class="item-reviews-block">
+                                            <ul class="item-review-list">
+                                                <li class="item-review-list__item">
+                                                    <div class="item-review">
+                                                        <div class="item-review__head">
+                                                            <div class="item-review__wrap-posted">
+                                                                <span class="item-review__posted-date">2022-08-23</span>
+                                                                <span class="item-review__postuser">clcbika</span>
+                                                                <div class="item-review__purchased"></div>
+                                                                <div class="item-review__purchased">Purchased Color &amp;Size:&nbsp;One size/Dark green </div>
+                                                            </div>
+                                                            <div class="item-review__wrap-ttl">
+                                                                <div class="review-rating-box">
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                                <span class="item-review__ttl">Perfect!</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-review__body">
+                                                            <div class="item-review__text">The transaction was smooth, communication was excellent,  the item arrived quickly and was well packaged. Thank you! </div>
+                                                        </div>
+                                                        <div class="item-review__tail">
+                                                            <div class="item-review-action js-review-vote">
+                                                                <span class="item-review__voted">Was this review helpful to you?&nbsp;</span>
+                                                                <span class="vote-link js-review-vote-up" data-review-id="561537a0-2aee-4561-93d7-4c9c4cf31262">YES</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="item-review-list__item">
+                                                    <div class="item-review">
+                                                        <div class="item-review__head">
+                                                            <div class="item-review__wrap-posted">
+                                                                <span class="item-review__posted-date">2022-07-30</span>
+                                                                <span class="item-review__postuser">jsy1812</span>
+                                                                <div class="item-review__purchased"></div>
+                                                                <div class="item-review__purchased">Purchased Color &amp;Size:&nbsp;ONE SIZE/gray</div>
+                                                            </div>
+                                                            <div class="item-review__wrap-ttl">
+                                                                <div class="review-rating-box">
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                                <span class="item-review__ttl">BaoBao Dazzle</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-review__body">
+                                                            <div class="item-review__text">Great seller who is efficient and fast on replies. First time purchasing on BUYMA and overall a great experience! Received my items in great condition as well:) </div>
+                                                        </div>
+                                                        <div class="item-review__tail">
+                                                            <div class="item-review-action js-review-vote">
+                                                                <span class="item-review__voted">Was this review helpful to you?&nbsp;</span>
+                                                                <span class="vote-link js-review-vote-up" data-review-id="07a7b732-35d6-4016-bbfc-0c68e15e1687">YES</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="item-review-list__item">
+                                                    <div class="item-review">
+                                                        <div class="item-review__head">
+                                                            <div class="item-review__wrap-posted">
+                                                                <span class="item-review__posted-date">2022-03-24</span>
+                                                                <span class="item-review__postuser">xeraph</span>
+                                                                <div class="item-review__purchased"></div>
+                                                                <div class="item-review__purchased">Purchased Color &amp;Size:&nbsp;52/Black </div>
+                                                            </div>
+                                                            <div class="item-review__wrap-ttl">
+                                                                <div class="review-rating-box">
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="review-rate">
+                                                                        <span class="rate-star star-full">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff8989" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                                <span class="item-review__ttl">Thank you!!!</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-review__body">
+                                                            <div class="item-review__text">Thank you for this jacket as it’s rare and limited! You are amazing!!!</div>
+                                                        </div>
+                                                        <div class="item-review__tail">
+                                                            <div class="item-review-action js-review-vote">
+                                                                <span class="item-review__voted">Was this review helpful to you?&nbsp;</span>
+                                                                <span class="vote-link js-review-vote-up" data-review-id="14e38bc1-8c48-4779-b69f-dbc7784328fa">YES</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                
+                <script id="js-item-data" type="application/json">
+                    {
+                        "id": "8eb8d79f-2623-4dbd-b1ad-64051fa311cc",
+                        "name": "Luxury Shirts",
+                        "category": "Men/Clothing/Tops/Shirts",
+                        "brand": "Louis Vuitton",
+                        "price": 2530.61,
+                        "listing_type": "normal",
+                        "buyma_product_id": 100423730
+                    }</script>
+                <div class="js-ga4-view-item" data-ga4-view-item="{&quot;event&quot;:&quot;view_item&quot;,&quot;ecommerce&quot;:{&quot;currency&quot;:&quot;USD&quot;,&quot;value&quot;:2530.61,&quot;items&quot;:[{&quot;item_id&quot;:&quot;8eb8d79f-2623-4dbd-b1ad-64051fa311cc&quot;,&quot;item_name&quot;:&quot;Luxury Shirts&quot;,&quot;discount&quot;:0,&quot;item_brand&quot;:&quot;Louis Vuitton&quot;,&quot;item_category&quot;:&quot;Men&quot;,&quot;item_category2&quot;:&quot;Clothing&quot;,&quot;item_category3&quot;:&quot;Tops&quot;,&quot;item_category4&quot;:&quot;Shirts&quot;,&quot;item_category5&quot;:&quot;NA&quot;,&quot;affiliation&quot;:&quot;Cindy&quot;,&quot;price&quot;:2530.61,&quot;currency&quot;:&quot;USD&quot;,&quot;item_variant&quot;:&quot;NA&quot;,&quot;quantity&quot;:1}]}}"></div>
+                <div style="display:none">
+                    <div class="modal fade js-shopping-bag-modal item-modal">
+                        <div class="bmg-c-modal__main item-modal-main">
+                            <div class="bmg-c-modal__section">
+                                <h3 class="item-modal-main__ttl">Added To Shopping Bag</h3>
+                            </div>
+                        </div>
+                        <div class="bmg-c-modal__bottom item-modal-buttons">
+                            <div class="bmg-c-outer-container">
+                                <div class="bmg-c-span-column">
+                                    <a class="bmg-btn--primary" data-et="shopping_bag,click, view_shopping_bag" href="/shopping_bag?country=id">View Shopping Bag</a>
+                                </div>
+                                <div class="bmg-c-span-column">
+                                    <a class="bmg-btn--secondary js-modal__close-btn" data-et="shopping_bag,click, modal_continue_shopping" href="javascript:void(0);">Continue Shopping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__secondary">
+                <div class="footer__navigation">
+                    <div class="footer__section footer__section--about js-footer__section" data-toggle="about">
+                        <b class="footer__sub-heading js-footer__toggle" data-toggle-target="about">
+                            About BUYMA
+                            <span class="footer__toggle--wrapper">
+                                <div class="footer__toggle--btn"></div>
+                            </span>
+                        </b>
+                        <div class="footer__menu">
+                            <a class="footer__link" data-et="brands,click,/footer/aboutbuyma" data-navi-evt="footer" href="/aboutbuyma/">About Us</a>
+                            <a class="footer__link" data-et="brands,click,/footer/reviews" data-navi-evt="footer" href="/reviews/">Reviews</a>
+                            <a class="footer__link" data-et="brands,click,/footer/authenticity" data-navi-evt="footer" href="/authenticity/">Authenticity</a>
+                            <a class="footer__link" data-et="brands,click,/footer/customer_protection" data-navi-evt="footer" href="https://buyma-us.zendesk.com/hc/en-us/articles/115015530188-Customer-Protection-">Customer Protection</a>
+                            <a class="footer__link" data-et="brands,click,/footer/categories" data-navi-evt="footer" href="/categories/">All Categories</a>
+                            <a class="footer__link" data-et="brands,click,/footer/brands" data-navi-evt="footer" href="/brands/">All Brands</a>
+                            <a class="footer__link" data-et="brands,click,/footer/contents" data-navi-evt="footer" href="/contents/">Featured Trends</a>
+                            <a class="footer__link" data-et="brands,click,/footer/contents/style-guides/" data-navi-evt="footer" href="/contents/style-guides/">Style Guides</a>
+                        </div>
+                    </div>
+                    <div class="footer__section footer__section--support js-footer__section" data-toggle="support">
+                        <b class="footer__sub-heading js-footer__toggle" data-toggle-target="support">
+                            Support
+                            <span class="footer__toggle--wrapper">
+                                <div class="footer__toggle--btn"></div>
+                            </span>
+                        </b>
+                        <div class="footer__menu">
+                            <a class="footer__link" data-et="brands,click,/footer/contact" data-navi-evt="footer" href="/contact/">Contact Us</a>
+                            <a class="footer__link" data-et="brands,click,/footer/orders_delivery" data-navi-evt="footer" href="https://buyma-us.zendesk.com/hc/en-us/sections/115001534807-Shipping-duties-and-taxes" target="_blank">Orders & delivery</a>
+                            <a class="footer__link" data-et="brands,click,/footer/payment_pricing" data-navi-evt="footer" href="https://buyma-us.zendesk.com/hc/en-us/sections/115001544388-Orders-Payment" target="_blank">Payment & Pricing</a>
+                            <a class="footer__link" data-et="brands,click,/footer/returns" data-navi-evt="footer" href="/returns/">Returns & Exchanges Policy</a>
+                            <a class="footer__link" data-et="brands,click,/footer/privacy" data-navi-evt="footer" href="/privacy/">Privacy Policy</a>
+                            <a class="footer__link" data-et="brands,click,/footer/terms" data-navi-evt="footer" href="/terms/">Terms Of Use</a>
+                            <a class="footer__link" data-et="brands,click,/footer/faq" data-navi-evt="footer" href="https://buyma-us.zendesk.com/" target="_blank">FAQ</a>
+                            <a class="footer__link" data-et="brands,click,/footer/seller" data-navi-evt="footer" href="/seller/">Become a seller</a>
+                            <a class="footer__link" data-et="brands,click,/footer/privacy_policy" data-navi-evt="footer" href="https://global.enigmo.co.jp/privacy-policy/" target="_blank">Personal Information Protection</a>
+                            <a class="footer__link" data-et="brands,click,/footer/notice_and_takedown" data-navi-evt="footer" href="/notice_and_takedown/">Notice And Takedown Policy</a>
+                            <a class="footer__link" data-et="brands,click,/footer/tradelaw" data-navi-evt="footer" href="/tradelaw/">Mark Based On Specific Trade Law</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__addition">
+                    <div class="footer__social">
+                        <a class="footer__media net net--facebook" data-et="brands,click,/footer/snsicon/facebook" data-navi-evt="footer" href="https://www.facebook.com/GLOBAL.BUYMA/?ref=hl" target="_blank">Facebook</a>
+                        <a class="footer__media net net--instagram" data-et="brands,click,/footer/snsicon/Instagram" data-navi-evt="footer" href="https://www.instagram.com/buyma_global/" target="_blank">Instagram</a>
+                        <a class="footer__media net net--pinterest" data-et="brands,click,/footer/snsicon/Pinterest" data-navi-evt="footer" href="https://jp.pinterest.com/BUYMA_us/" target="_blank">Pinterest</a>
+                    </div>
+                    <div class="footer__legal">
+                        Cindy Ecommerce - Uncover luxury fashion treasures from around the world<br/>
+                        <br/>©2023 Cindy Ecommerce Inc. All right reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="js/cloudfront.js"></script>
+        <script src="js/app.js" defer="defer"></script>
+        <script src="js/brand.js" defer="defer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var mainImage = document.querySelector('.js-item-image-list img');
+                var thumbImages = document.querySelectorAll('.js-thumb-image');
+        
+                // Add click event listener to each thumbnail
+                thumbImages.forEach(function (thumb) {
+                    thumb.addEventListener('click', function () {
+                        // Update the main image when a thumbnail is clicked
+                        var imageUrl = thumb.querySelector('img').src;
+                        mainImage.src = imageUrl;
+                    });
+                });
+            });
+        </script>
+
+        <div class="js-search-panel bmg-c-search-panel"></div>
+    </body>
+</html>

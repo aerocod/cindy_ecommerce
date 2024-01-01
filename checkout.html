@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport"/>
+        <title>Checkout - Cindy Ecommerce</title>
+        <script>
+            //<![CDATA[
+            window.gon = {};
+            gon.user = {
+                "login": true,
+                "bot": false,
+                "lang": "en",
+                "hashed_email": "b4302666ceb3c84ad943964ce27718b1ea427e2be1223b91922624e145d25a64"
+            };
+        </script>
+        <link rel="stylesheet" media="all" href="css/main.css"/>
+        <script src="js/app.js" defar="true"></script>
+        <link rel="stylesheet" media="screen" href="css/checkout.css"/>
+    </head>
+    <body>
+        <div class="js-ajax-spinner"></div>
+        <div class="js-modal-contents">
+            <header class="bmg-l-header">
+                <div class="bmg-l-header__content">
+                    <div class="bmg-l-header__navbar">
+                        <div class="bmg-l-header__head">
+                            <span class="bmg-l-header__logo">
+                                <img src="images/buyma_logo.png" alt="logo" style="display: inline; margin-top: -5px; margin-left: 10px;">
+                            </span>
+                            
+                            <div class="bmg-l-header__menu">
+                                <ul>
+                                    <li class="bmg-l-header__menu-item bmg-l-header__secure-checkout">
+                                        <span class="bmg-u-mr5">Secure checkout</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 -3 16 16">
+                                            <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                                          </svg>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="bmg-l-wrapper">
+            <div class="bmg-l-layout--full">
+                <ol class="bmg-c-steps">
+                    <li class="bmg-c-steps__finished bmg-c-steps__item">
+                        <div class="step-wrapper">
+                            <div class="step-num-wrapper">
+                                <div class="step-num">
+                                    <span class="translation_missing" title="translation missing: en.1">1</span>
+                                </div>
+                            </div>
+                            <div class="step-label"></div>
+                            <div class="step-name">
+                                <span>Login</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bmg-c-steps__active bmg-c-steps__item">
+                        <div class="step-wrapper">
+                            <div class="step-num-wrapper">
+                                <div class="step-num">
+                                    <span class="translation_missing" title="translation missing: en.2">2</span>
+                                </div>
+                            </div>
+                            <div class="step-label"></div>
+                            <div class="step-name">
+                                <span>Choose a Product</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bmg-c-steps__unfinished bmg-c-steps__item">
+                        <div class="step-wrapper">
+                            <div class="step-num-wrapper">
+                                <div class="step-num">
+                                    <span class="translation_missing" title="translation missing: en.3">3</span>
+                                </div>
+                            </div>
+                            <div class="step-label"></div>
+                            <div class="step-name">
+                                <span>Checkout</span>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <div class="bmg-l-layout--full__main">
+                    <div class="js-error-explanation flash-error" id="error_explanation" style="display: none"></div>
+                <div class="js-express-checkout-form-view">
+                </div>
+
+<div class="sb-section--shipping-address">
+    <h2>New Shipping Address</h2>
+    <div class="js-address-form-view">
+        <form class="js-address-form" id="new_address" action="invoice.html" accept-charset="UTF-8" method="post">
+            <fieldset>
+                <div class="js-error-explanation flash-error" id="error_explanation" style="display: none"></div>
+                <div class="bmg-b-form__control-row">
+                    <div class="bmg-b-form__control-group">
+                        <div class="bmg-b-form__control-group-inner">
+                            <input placeholder="First name" type="text" name="address[first_name]" id="address_first_name"/>
+                        </div>
+                    </div>
+                    <div class="bmg-b-form__control-group">
+                        <div class="bmg-b-form__control-group-inner">
+                            <input placeholder="Last name" type="text" name="address[last_name]" id="address_last_name"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="bmg-b-form__control-group">
+                    <div class="bmg-b-form__control-group-inner">
+                        <input placeholder="Address line 1" type="text" name="address[address_1]" id="address_address_1"/>
+                    </div>
+                </div>
+                <div class="bmg-b-form__control-group">
+                    <div class="bmg-b-form__control-group-inner">
+                        <input placeholder="Address line 2 (optional)" type="text" name="address[address_2]" id="address_address_2"/>
+                    </div>
+                </div>
+                <div class="bmg-b-form__control-group">
+                    <div class="bmg-b-form__control-group-inner">
+                        <input placeholder="City/Town" type="text" name="address[city]" id="address_city"/>
+                    </div>
+                </div>
+                <div class="bmg-b-form__control-row">
+                    <div class="bmg-b-form__control-group">
+                        <div class="bmg-b-form__control-group-inner">
+                            <select class="js-country-cd" name="address[country_cd]" id="address_country_cd">
+                                <option data-need-postcode="true" value="">===========================</option>
+                                <option data-need-postcode="true" value="USA">United States</option>
+                                <option data-need-postcode="true" value="AUS">Australia</option>
+                                <option data-need-postcode="true" value="CAN">Canada</option>
+                                <option data-need-postcode="true" value="CHN">China</option>
+                                <option data-need-postcode="true" value="FRA">France</option>
+                                <option data-need-postcode="true" value="DEU">Germany</option>
+                                <option data-need-postcode="false" value="HKG">Hong Kong</option>
+                                <option data-need-postcode="true" selected="selected" value="IDN">Indonesia</option>
+                                <option data-need-postcode="true" value="ITA">Italy</option>
+                                <option data-need-postcode="true" value="JPN">Japan</option>
+                                <option data-need-postcode="true" value="KOR">Korea</option>
+                                <option data-need-postcode="true" value="MYS">Malaysia</option>
+                                <option data-need-postcode="true" value="NZL">New Zealand</option>
+                                <option data-need-postcode="true" value="SGP">Singapore</option>
+                                <option data-need-postcode="true" value="ESP">Spain</option>
+                                <option data-need-postcode="true" value="TWN">Taiwan</option>
+                                <option data-need-postcode="true" value="GBR">United Kingdom</option>
+                                <option data-need-postcode="true" value="">===========================</option>
+                                <option data-need-postcode="true" value="AFG">Afghanistan</option>
+                                <option data-need-postcode="true" value="ALA">Åland Islands</option>
+                                <option data-need-postcode="true" value="ALB">Albania</option>
+                                <option data-need-postcode="true" value="DZA">Algeria</option>
+                                <option data-need-postcode="true" value="ASM">American Samoa</option>
+                                <option data-need-postcode="true" value="AND">Andorra</option>
+                                <option data-need-postcode="true" value="AGO">Angola</option>
+                                <option data-need-postcode="true" value="AIA">Anguilla</option>
+                                <option data-need-postcode="true" value="ATG">Antigua and Barbuda</option>
+                                <option data-need-postcode="true" value="ARG">Argentina</option>
+                                <option data-need-postcode="true" value="ARM">Armenia</option>
+                                <option data-need-postcode="true" value="ABW">Aruba</option>
+                                <option data-need-postcode="true" value="AUS">Australia</option>
+                                <option data-need-postcode="true" value="AUT">Austria</option>
+                                <option data-need-postcode="true" value="AZE">Azerbaijan</option>
+                                <option data-need-postcode="true" value="BHS">Bahamas</option>
+                                <option data-need-postcode="true" value="BHR">Bahrain</option>
+                                <option data-need-postcode="true" value="BGD">Bangladesh</option>
+                                <option data-need-postcode="true" value="BRB">Barbados</option>
+                                <option data-need-postcode="true" value="BLR">Belarus</option>
+                                <option data-need-postcode="true" value="BEL">Belgium</option>
+                                <option data-need-postcode="true" value="BLZ">Belize</option>
+                                <option data-need-postcode="true" value="BEN">Benin</option>
+                                <option data-need-postcode="true" value="BMU">Bermuda</option>
+                                <option data-need-postcode="true" value="BTN">Bhutan</option>
+                                <option data-need-postcode="true" value="BOL">Bolivia</option>
+                                <option data-need-postcode="true" value="BES">Bonaire, Saint Eustatius and Saba</option>
+                                <option data-need-postcode="true" value="BIH">Bosnia and Herzegovina</option>
+                                <option data-need-postcode="true" value="BWA">Botswana</option>
+                                <option data-need-postcode="true" value="BRA">Brazil</option>
+                                <option data-need-postcode="true" value="BRN">Brunei</option>
+                                <option data-need-postcode="true" value="BGR">Bulgaria</option>
+                                <option data-need-postcode="true" value="BFA">Burkina Faso</option>
+                                <option data-need-postcode="true" value="BDI">Burundi</option>
+                                <option data-need-postcode="true" value="KHM">Cambodia</option>
+                                <option data-need-postcode="true" value="CMR">Cameroon</option>
+                                <option data-need-postcode="true" value="CAN">Canada</option>
+                                <option data-need-postcode="true" value="CPV">Cape Verde</option>
+                                <option data-need-postcode="true" value="CYM">Cayman Islands</option>
+                                <option data-need-postcode="true" value="CAF">Central African Republic</option>
+                                <option data-need-postcode="true" value="TCD">Chad</option>
+                                <option data-need-postcode="true" value="CHL">Chile</option>
+                                <option data-need-postcode="true" value="CHN">China</option>
+                                <option data-need-postcode="true" value="CXR">Christmas Island</option>
+                                <option data-need-postcode="true" value="COL">Colombia</option>
+                                <option data-need-postcode="true" value="COG">Congo</option>
+                                <option data-need-postcode="true" value="COD">Congo, the Democratic Republic of the</option>
+                                <option data-need-postcode="true" value="COK">Cook Islands</option>
+                                <option data-need-postcode="true" value="CRI">Costa Rica</option>
+                                <option data-need-postcode="true" value="CIV">Côte d &#39;Ivoire</option>
+                                <option data-need-postcode="true" value="HRV">Croatia</option>
+                                <option data-need-postcode="true" value="CUB">Cuba</option>
+                                <option data-need-postcode="true" value="CUW">Curaçao</option>
+                                <option data-need-postcode="true" value="CYP">Cyprus</option>
+                                <option data-need-postcode="true" value="CZE">Czech Republic</option>
+                                <option data-need-postcode="true" value="PRK">Democratic People &#39;s Republic of Korea</option>
+                                <option data-need-postcode="true" value="DNK">Denmark</option>
+                                <option data-need-postcode="true" value="DJI">Djibouti</option>
+                                <option data-need-postcode="true" value="DMA">Dominica</option>
+                                <option data-need-postcode="true" value="DOM">Dominican Republic</option>
+                                <option data-need-postcode="true" value="ECU">Ecuador</option>
+                                <option data-need-postcode="true" value="EGY">Egypt</option>
+                                <option data-need-postcode="true" value="SLV">El Salvador</option>
+                                <option data-need-postcode="true" value="GNQ">Equatorial Guinea</option>
+                                <option data-need-postcode="true" value="ERI">Eritrea</option>
+                                <option data-need-postcode="true" value="EST">Estonia</option>
+                                <option data-need-postcode="true" value="ETH">Ethiopia</option>
+                                <option data-need-postcode="true" value="FLK">Falkland Islands (Malvinas)</option>
+                                <option data-need-postcode="true" value="FRO">Faroe Islands</option>
+                                <option data-need-postcode="true" value="FJI">Fiji</option>
+                                <option data-need-postcode="true" value="FIN">Finland</option>
+                                <option data-need-postcode="true" value="FRA">France</option>
+                                <option data-need-postcode="true" value="GAB">Gabon</option>
+                                <option data-need-postcode="true" value="GMB">Gambia</option>
+                                <option data-need-postcode="true" value="GEO">Georgia</option>
+                                <option data-need-postcode="true" value="DEU">Germany</option>
+                                <option data-need-postcode="true" value="GHA">Ghana</option>
+                                <option data-need-postcode="true" value="GIB">Gibraltar</option>
+                                <option data-need-postcode="true" value="GRC">Greece</option>
+                                <option data-need-postcode="true" value="GRL">Greenland</option>
+                                <option data-need-postcode="true" value="GRD">Grenada</option>
+                                <option data-need-postcode="true" value="GLP">Guadeloupe</option>
+                                <option data-need-postcode="true" value="GUM">Guam</option>
+                                <option data-need-postcode="true" value="GTM">Guatemala</option>
+                                <option data-need-postcode="true" value="GGY">Guernsey</option>
+                                <option data-need-postcode="true" value="GUF">Guiana</option>
+                                <option data-need-postcode="true" value="GIN">Guinea</option>
+                                <option data-need-postcode="true" value="GNB">Guinea-Bissau</option>
+                                <option data-need-postcode="true" value="GUY">Guyana</option>
+                                <option data-need-postcode="true" value="HTI">Haiti</option>
+                                <option data-need-postcode="true" value="VAT">Holy See (Vatican City State)</option>
+                                <option data-need-postcode="true" value="HND">Honduras</option>
+                                <option data-need-postcode="false" value="HKG">Hong Kong</option>
+                                <option data-need-postcode="true" value="HUN">Hungary</option>
+                                <option data-need-postcode="true" value="ISL">Iceland</option>
+                                <option data-need-postcode="true" value="IND">India</option>
+                                <option data-need-postcode="true" selected="selected" value="IDN">Indonesia</option>
+                                <option data-need-postcode="true" value="IRN">Iran</option>
+                                <option data-need-postcode="true" value="IRQ">Iraq</option>
+                                <option data-need-postcode="false" value="IRL">Ireland</option>
+                                <option data-need-postcode="true" value="IMN">Isle of Man</option>
+                                <option data-need-postcode="true" value="ISR">Israel</option>
+                                <option data-need-postcode="true" value="ITA">Italy</option>
+                                <option data-need-postcode="true" value="JAM">Jamaica</option>
+                                <option data-need-postcode="true" value="JPN">Japan</option>
+                                <option data-need-postcode="true" value="JEY">Jersey</option>
+                                <option data-need-postcode="true" value="JOR">Jordan</option>
+                                <option data-need-postcode="true" value="KAZ">Kazakhstan</option>
+                                <option data-need-postcode="true" value="KEN">Kenya</option>
+                                <option data-need-postcode="true" value="KIR">Kiribati</option>
+                                <option data-need-postcode="true" value="KOR">Korea</option>
+                                <option data-need-postcode="true" value="KWT">Kuwait</option>
+                                <option data-need-postcode="true" value="KGZ">Kyrgyzstan</option>
+                                <option data-need-postcode="true" value="LAO">Laos</option>
+                                <option data-need-postcode="true" value="LVA">Latvia</option>
+                                <option data-need-postcode="true" value="LBN">Lebanon</option>
+                                <option data-need-postcode="true" value="LSO">Lesotho</option>
+                                <option data-need-postcode="true" value="LBR">Liberia</option>
+                                <option data-need-postcode="true" value="LBY">Libya</option>
+                                <option data-need-postcode="true" value="LIE">Liechtenstein</option>
+                                <option data-need-postcode="true" value="LTU">Lithuania</option>
+                                <option data-need-postcode="true" value="LUX">Luxembourg</option>
+                                <option data-need-postcode="false" value="MAC">Macao</option>
+                                <option data-need-postcode="true" value="MKD">Macedonia</option>
+                                <option data-need-postcode="true" value="MWI">Malawi</option>
+                                <option data-need-postcode="true" value="MYS">Malaysia</option>
+                                <option data-need-postcode="true" value="MDV">Maldives</option>
+                                <option data-need-postcode="true" value="MLI">Mali</option>
+                                <option data-need-postcode="true" value="MLT">Malta</option>
+                                <option data-need-postcode="true" value="MHL">Marshall Islands</option>
+                                <option data-need-postcode="true" value="MTQ">Martinique</option>
+                                <option data-need-postcode="true" value="MRT">Mauritania</option>
+                                <option data-need-postcode="true" value="MUS">Mauritius</option>
+                                <option data-need-postcode="true" value="MEX">Mexico</option>
+                                <option data-need-postcode="true" value="FSM">Micronesia, Federated States of</option>
+                                <option data-need-postcode="true" value="MDA">Moldova, Republic of</option>
+                                <option data-need-postcode="true" value="MCO">Monaco</option>
+                                <option data-need-postcode="true" value="MNG">Mongolia</option>
+                                <option data-need-postcode="true" value="MNE">Montenegro</option>
+                                <option data-need-postcode="true" value="MSR">Montserrat</option>
+                                <option data-need-postcode="true" value="MAR">Morocco</option>
+                                <option data-need-postcode="true" value="MOZ">Mozambique</option>
+                                <option data-need-postcode="true" value="MMR">Myanmar</option>
+                                <option data-need-postcode="true" value="NAM">Namibia</option>
+                                <option data-need-postcode="true" value="NRU">Nauru</option>
+                                <option data-need-postcode="true" value="NPL">Nepal</option>
+                                <option data-need-postcode="true" value="NLD">Netherlands</option>
+                                <option data-need-postcode="true" value="NCL">New Caledonia</option>
+                                <option data-need-postcode="true" value="NZL">New Zealand</option>
+                                <option data-need-postcode="true" value="NIC">Nicaragua</option>
+                                <option data-need-postcode="true" value="NER">Niger</option>
+                                <option data-need-postcode="true" value="NGA">Nigeria</option>
+                                <option data-need-postcode="true" value="NIU">Niue</option>
+                                <option data-need-postcode="true" value="NFK">Norfolk Island</option>
+                                <option data-need-postcode="true" value="MNP">Northern Mariana Islands</option>
+                                <option data-need-postcode="true" value="NOR">Norway</option>
+                                <option data-need-postcode="true" value="OMN">Oman</option>
+                                <option data-need-postcode="true" value="PAK">Pakistan</option>
+                                <option data-need-postcode="true" value="PLW">Palau</option>
+                                <option data-need-postcode="true" value="PSE">Palestinian Territory, Occupied</option>
+                                <option data-need-postcode="true" value="PAN">Panama</option>
+                                <option data-need-postcode="true" value="PNG">Papua New Guinea</option>
+                                <option data-need-postcode="true" value="PRY">Paraguay</option>
+                                <option data-need-postcode="true" value="PER">Peru</option>
+                                <option data-need-postcode="true" value="PHL">Philippines</option>
+                                <option data-need-postcode="true" value="PCN">Pitcairn</option>
+                                <option data-need-postcode="true" value="POL">Poland</option>
+                                <option data-need-postcode="true" value="PRT">Portugal</option>
+                                <option data-need-postcode="true" value="PRI">Puerto Rico</option>
+                                <option data-need-postcode="true" value="QAT">Qatar</option>
+                                <option data-need-postcode="true" value="ROU">Romania</option>
+                                <option data-need-postcode="true" value="RUS">Russia</option>
+                                <option data-need-postcode="true" value="RWA">Rwanda</option>
+                                <option data-need-postcode="true" value="BLM">Saint Barthélemy</option>
+                                <option data-need-postcode="true" value="SHN">Saint Helena, Ascension and Tristan da Cunha</option>
+                                <option data-need-postcode="true" value="KNA">Saint Kitts and Nevis</option>
+                                <option data-need-postcode="true" value="LCA">Saint Lucia</option>
+                                <option data-need-postcode="true" value="MAF">Saint Martin (French part)</option>
+                                <option data-need-postcode="true" value="SPM">Saint Pierre and Miquelon</option>
+                                <option data-need-postcode="true" value="VCT">Saint Vincent and the Grenadines</option>
+                                <option data-need-postcode="true" value="WSM">Samoa</option>
+                                <option data-need-postcode="true" value="STP">Sao Tome and Principe</option>
+                                <option data-need-postcode="true" value="SAU">Saudi Arabia</option>
+                                <option data-need-postcode="true" value="SEN">Senegal</option>
+                                <option data-need-postcode="true" value="SRB">Serbia</option>
+                                <option data-need-postcode="true" value="SLE">Sierra Leone</option>
+                                <option data-need-postcode="true" value="SGP">Singapore</option>
+                                <option data-need-postcode="true" value="SXM">Sint Maarten (Dutch part)</option>
+                                <option data-need-postcode="true" value="SVK">Slovakia</option>
+                                <option data-need-postcode="true" value="SVN">Slovenia</option>
+                                <option data-need-postcode="true" value="SLB">Solomon Islands</option>
+                                <option data-need-postcode="true" value="SOM">Somalia</option>
+                                <option data-need-postcode="true" value="ZAF">South Africa</option>
+                                <option data-need-postcode="true" value="SGS">South Georgia and the South Sandwich Islands</option>
+                                <option data-need-postcode="true" value="SSD">South Sudan</option>
+                                <option data-need-postcode="true" value="ESP">Spain</option>
+                                <option data-need-postcode="true" value="LKA">Sri Lanka</option>
+                                <option data-need-postcode="true" value="SDN">Sudan</option>
+                                <option data-need-postcode="true" value="SUR">Suriname</option>
+                                <option data-need-postcode="true" value="SJM">Svalbard and Jan Mayen</option>
+                                <option data-need-postcode="true" value="SWZ">Swaziland</option>
+                                <option data-need-postcode="true" value="SWE">Sweden</option>
+                                <option data-need-postcode="true" value="CHE">Switzerland</option>
+                                <option data-need-postcode="true" value="SYR">Syrian Arab Republic</option>
+                                <option data-need-postcode="true" value="PYF">Tahiti</option>
+                                <option data-need-postcode="true" value="TWN">Taiwan</option>
+                                <option data-need-postcode="true" value="TJK">Tajikistan</option>
+                                <option data-need-postcode="true" value="TZA">Tanzania, United Republic of</option>
+                                <option data-need-postcode="true" value="THA">Thailand</option>
+                                <option data-need-postcode="true" value="TLS">Timor-Leste</option>
+                                <option data-need-postcode="true" value="TGO">Togo</option>
+                                <option data-need-postcode="true" value="TKL">Tokelau</option>
+                                <option data-need-postcode="true" value="TON">Tonga</option>
+                                <option data-need-postcode="true" value="TTO">Trinidad And Tobago</option>
+                                <option data-need-postcode="true" value="TUN">Tunisia</option>
+                                <option data-need-postcode="true" value="TUR">Turkey</option>
+                                <option data-need-postcode="true" value="TKM">Turkmenistan</option>
+                                <option data-need-postcode="true" value="TCA">Turks and Caicos Islands</option>
+                                <option data-need-postcode="true" value="TUV">Tuvalu</option>
+                                <option data-need-postcode="true" value="UGA">Uganda</option>
+                                <option data-need-postcode="true" value="UKR">Ukraine</option>
+                                <option data-need-postcode="true" value="ARE">United Arab Emirates</option>
+                                <option data-need-postcode="true" value="GBR">United Kingdom</option>
+                                <option data-need-postcode="true" value="USA">United States</option>
+                                <option data-need-postcode="true" value="UMI">United States Minor Outlying Islands</option>
+                                <option data-need-postcode="true" value="URY">Uruguay</option>
+                                <option data-need-postcode="true" value="UZB">Uzbekistan</option>
+                                <option data-need-postcode="true" value="VUT">Vanuatu</option>
+                                <option data-need-postcode="true" value="VEN">Venezuela</option>
+                                <option data-need-postcode="true" value="VNM">Viet Nam</option>
+                                <option data-need-postcode="true" value="WLF">Wallis and Futuna</option>
+                                <option data-need-postcode="true" value="ESH">Western Sahara</option>
+                                <option data-need-postcode="true" value="YEM">Yemen</option>
+                                <option data-need-postcode="true" value="ZMB">Zambia</option>
+                                <option data-need-postcode="true" value="ZWE">Zimbabwe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="bmg-b-form__control-group">
+                        <div class="bmg-b-form__control-group-inner">
+                            <input placeholder="State/Province" type="text" name="address[state]" id="address_state"/>
+                        </div>
+                    </div>
+                    <div class="bmg-b-form__control-group">
+                        <div class="bmg-b-form__control-group-inner">
+                            <input placeholder="Postal/ZIP code" type="text" name="address[postcode]" id="address_postcode"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="bmg-b-form__control-group">
+                    <div class="bmg-b-form__control -group-inner">
+                        <input class="js-phone-number" placeholder="Phone number " type="tel" name="address[phone_number]" id="address_phone_number"/>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="bmg-b-form__submit-bottom js-form-submit-bottom">
+                <input type="submit" name="commit" value="Continue to payment" class="bmg-b-form__submit-btn"/>
+                <div class="sb-section__checkout-back">
+                    <a href="product.html">Return to product page</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <script src="js/checkout_form.js"></script>
+    
+    
+    
+</div>
+</div>
+<div class="bmg-l-layout--full__sidebar">
+    <div class="sidebar-box">
+        <div class="sb-summary-products-wrapper">
+            <div class="sb-summary-products">
+                <div class="sb-summary-products__image-wrapper">
+                    <div class="sb-summary-products__qnty">1</div>
+                    <div class="sb-summary-products__image" style="background-image: url(https://cdn-images.buyma.com/imgdata/item/231031/0100423730/578352050/428.jpg)"></div>
+                </div>
+                <div class="sb-summary-products__info">
+                    <span>Luxury Shirts</span>
+                    XS (needs to be confirmed) / Bleu Tempete (needs to be confirmed)
+                </div>
+                <div class="sb-summary-products__price">$2,530.61</div>
+            </div>
+        </div>
+        <div class="sb-summary-main">
+            <div class="sb-summary-price sb-content-price">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <span class="translation_missing" title="translation missing: en.checkout.summary.subtotal">Subtotal</span>
+                            </th>
+                            <td>$2,530.61</td>
+                        </tr>
+                        <tr class="sb-summary-price__shipping">
+                            <th>
+                                <span class="translation_missing" title="translation missing: en.checkout.summary.shipping">Shipping</span>
+                            </th>
+                            <td>$0.00</td>
+                        </tr>
+                        <tr class="sb-summary-price__total sb-content-price__total">
+                            <th class="sb-summary-price__head">
+                                <span class="translation_missing" title="translation missing: en.checkout.summary.total">Total</span>
+                            </th>
+                            <td class="sb-summary-price__total-price">
+                                USD<span>$2,530.61</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div></div><script src="https://js.stripe.com/v3/"></script>
+<div id='js-stripe-publishable-key' data-key=pk_live_bddcIT2H5HkpiaKuSjPpVn0u></div>
+<script src="https://static.buyma.us/assets/javascripts/checkout_shipping.bundle-6da7bfa4e9.js"></script>
+<input class="js-session-id" type="hidden" value="c44e791c8f4b0b56baaaf79b047ec5fb"/>
+<script src="https://static.buyma.us/assets/javascripts/riskified_beacon.bundle-847f15af36.js" defer="defer"></script>
+</body>
+</html>

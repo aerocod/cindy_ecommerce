@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- index.html buat login page yaa -->
+        <meta charset="UTF-8"/>
+        <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport"/>
+        <title>Login - Cindy Ecommerce</title>
+        <link rel="stylesheet" media="all" href="css/main.css"/>
+        <link rel="stylesheet" media="screen" href="css/typography.css"/>
+        <link rel="stylesheet" media="screen" href="css/login.css"/>
+    </head>
+    <body>
+        <div class="bmg-l-wrapper js-bmg-l-wrapper">
+            <div class="js-sessions">
+                <div class="bmg-l-layout--s bmg-u-mt15 bmg-u-mb15">
+                    <ol class="bmg-c-steps">
+                        <!--Step 1 Login-->
+                        <li class="bmg-c-steps__active bmg-c-steps__item">
+                            <div class="step-wrapper">
+                                <div class="step-num-wrapper">
+                                    <div class="step-num">
+                                        <span class="translation_missing" title="translation missing: en.1">1</span>
+                                    </div>
+                                </div>
+                                <div class="step-label"></div>
+                                <div class="step-name">
+                                    <span>Login</span>
+                                </div>
+                            </div>
+                        </li>
+                        <!--Step 2 Choose a Product-->
+                        <li class="bmg-c-steps__unfinished bmg-c-steps__item">
+                            <div class="step-wrapper">
+                                <div class="step-num-wrapper">
+                                    <div class="step-num">
+                                        <span class="translation_missing" title="translation missing: en.2">2</span>
+                                    </div>
+                                </div>
+                                <div class="step-label"></div>
+                                <div class="step-name">
+                                    <span>Choose a Product</span>
+                                </div>
+                            </div>
+                        </li>
+                        <!--Step 3 Checkout-->
+                        <li class="bmg-c-steps__unfinished bmg-c-steps__item">
+                            <div class="step-wrapper">
+                                <div class="step-num-wrapper">
+                                    <div class="step-num">
+                                        <span class="translation_missing" title="translation missing: en.3">3</span>
+                                    </div>
+                                </div>
+                                <div class="step-label"></div>
+                                <div class="step-name">
+                                    <span>Checkout</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                    <h1 class="bmg-b-form__font-weight-normal">
+                        Good to see you again.<br/>Please log in.
+                    </h1>
+                    <div class="bmg-b-form--tradition lo-login--form">
+                        <div class="bmg-b-form__main lo-login--form__main">
+                            <!--If login success redirect to home.html (landing page)-->
+                            <form id="loginForm" class="js-c-executed-only-once" action="/home.html" accept-charset="UTF-8" method="post">
+                                <fieldset class="bmg-b-form--no-border">
+                                    <!--Field Email-->
+                                    <div class="bmg-b-form__control-group--no-border">
+                                        <div class="bmg-b-form__control-group-inner">
+                                            <label class="bmg-b-form__field-name" for="buyma_global_user_forms_login_form_email">Email</label>
+                                            <input autocapitalize="off" placeholder="admin@admin.com" type="text" value="" name="buyma_global_user_forms_login_form[email]" id="buyma_global_user_forms_login_form_email"/>
+                                        </div>
+                                    </div>
+                                    <!--Field Password-->
+                                    <div class="bmg-b-form__control-group--no-border">
+                                        <div class="bmg-b-form__control-group-inner">
+                                            <label class="bmg-b-form__field-name" for="buyma_global_user_forms_login_form_password">Password</label>
+                                            <input class="js-password" type="password" name="buyma_global_user_forms_login_form[password]" id="buyma_global_user_forms_login_form_password"/>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <input type="checkbox" value="1" checked="checked" name="buyma_global_user_forms_login_form[remember_me]" id="buyma_global_user_forms_login_form_remember_me"/>
+                                        <!-- Remember Me and Forgot Password just for Aesthetically Purpose -->
+                                        <label class="bmg-b-form__check-label bmg-b-form__font-weight-normal" for="buyma_global_user_forms_login_form_remember_me">Remember me</label>
+                                        <span class="lo-forgot-password">
+                                            <a id="forgotPasswordLink" class="js-forgot-password bmg-b-text-color--gray" href="/forgot_password">
+                                                <span class="translation_missing" title="translation missing: en.sign_in.forgot_your_password?">Forgot Your Password?</span>
+                                            </a>
+                                        </span>                                 
+                                        <script>
+                                            //Forgot password nya di disable yaa
+                                            document.getElementById("forgotPasswordLink").href = "javascript:void(0);";
+                                        </script>                                               
+                                    </p>
+                                </fieldset>
+                                <!--Send the form to login.js-->
+                                <p class="bmg-u-mt20">
+                                    <input type="submit" name="commit" value="Login" class="bmg-b-form__submit-btn js-login"/>
+                                </p>
+                            </form>
+                            <!--Handle by login.js from inputted form-->
+                            <script src="js/login.js"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
